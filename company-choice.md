@@ -14,20 +14,45 @@ Después de analizar el contexto de la empresa, identifiqué varios problemas te
 
 - Los sistemas actuales no están integrados, lo que dificulta el intercambio de información entre las diferentes áreas y sedes.
 - No existe una API central que permita centralizar la comunicación entre los distintos sistemas.
-- La información se encuentra distribuida en diferentes plataformas, lo que dificulta tener una visión unificada del negocio.
 - No cuentan con un sistema de monitoreo que permita detectar fallas de manera proactiva antes de que afecten la continuidad del servicio.
-- La toma de decisiones depende de información proveniente de distintos sistemas y reportes manuales.
+- La empresa no cuenta con una estrategia centralizada de respaldo de la información, lo que representa un riesgo para la continuidad operativa en caso de incidentes.
 
 ## Soluciones que me gustaría desarrollar
 
-Me gustaría implementar soluciones concretas a dolores que, desde mi punto de vista, son importantes y pueden afectar la continuidad del servicio. Algunas de las soluciones que me gustaría desarrollar son:
+### Tecnología (Departamento de Tecnología)
 
-- Centralizar la comunicación entre los diferentes sistemas mediante una API.
-- Crear una base de datos centralizada que permita unificar la información de la empresa.
-- Implementar un servicio de monitoreo para detectar problemas a tiempo y actuar antes de que afecten la operación de las clínicas.
-- Desarrollar dashboards con información en tiempo real que faciliten la toma de decisiones.
-- Explorar el uso de inteligencia artificial para automatizar procesos y optimizar tareas administrativas.
+#### Problema
+
+La empresa cuenta con múltiples sistemas independientes que no se comunican entre sí, lo que dificulta el intercambio de información y genera una arquitectura fragmentada.
+
+#### Solución
+
+Implementar una API centralizada que permita integrar los diferentes sistemas y facilite el intercambio de información entre ellos.
+
+---
+
+### Tecnología (Departamento de Tecnología)
+
+#### Problema
+
+La empresa no cuenta con un sistema de monitoreo que permita conocer en tiempo real el estado de sus operaciones ni detectar incidentes antes de que impacten a las clínicas.
+
+#### Solución
+
+Implementar un sistema de monitoreo de KPIs y observabilidad que permita visualizar métricas en tiempo real, generar alertas y facilitar la toma de decisiones.
+
+---
+
+### Tecnología (Departamento de Tecnología)
+
+#### Problema
+
+La empresa no dispone de un mecanismo centralizado para respaldar la información crítica, lo que representa un riesgo para la continuidad del servicio ante fallos o pérdida de datos.
+
+#### Solución
+
+Implementar una estrategia de respaldos (backups) automatizados que garantice la recuperación de la información y la continuidad operativa de la empresa.
 
 ## ¿Qué espero aprender durante el curso?
 
-Espero aprender a diseñar e implementar soluciones de AI Engineering que permitan integrar sistemas, automatizar procesos y desarrollar herramientas inteligentes para resolver problemas reales. También quiero fortalecer mis conocimientos en arquitectura de software, APIs, bases de datos, monitoreo e inteligencia artificial aplicada al sector salud.
+Espero aprender a diseñar e implementar soluciones de AI Engineering que permitan integrar sistemas, automatizar procesos y desarrollar herramientas inteligentes para resolver problemas reales. También quiero fortalecer mis conocimientos en arquitectura de software, APIs, monitoreo, estrategias de respaldo e inteligencia artificial aplicada al sector salud.
