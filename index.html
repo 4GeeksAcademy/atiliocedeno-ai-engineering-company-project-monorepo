@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HealthCore — Transformación Digital en Salud</title>
+  <meta name="description" content="HealthCore: Transformación digital del sector salud mediante IA, automatización e integración de sistemas. Mejoramos la eficiencia operativa y la experiencia del paciente." />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏥</text></svg>" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-[#F8FAFC] text-[#1F2937] font-sans antialiased">
+
+  <!-- ============================================================ -->
+  <!-- ENCABEZADO / NAVEGACIÓN                                       -->
+  <!-- ============================================================ -->
+  <header class="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-md shadow-sm z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 md:h-20">
+
+        <!-- Logo -->
+        <a href="#" class="flex items-center gap-2">
+          <span class="text-2xl">🏥</span>
+          <span class="text-xl font-bold text-[#2563EB] tracking-tight">Health<span class="text-[#14B8A6]">Core</span></span>
+        </a>
+
+        <!-- Navigation - Desktop -->
+        <nav class="hidden md:flex items-center gap-8">
+          <a href="#hero" class="text-sm font-medium text-[#1F2937]/70 hover:text-[#2563EB] transition-colors duration-200">Inicio</a>
+          <a href="#features" class="text-sm font-medium text-[#1F2937]/70 hover:text-[#2563EB] transition-colors duration-200">Características</a>
+          <a href="#contact" class="text-sm font-medium text-[#1F2937]/70 hover:text-[#2563EB] transition-colors duration-200">Contacto</a>
+          <a href="aplication.html" class="bg-[#2563EB] text-white text-sm font-semibold px-5 py-2.5 rounded-lg btn-scale hover:bg-[#1d4ed8] shadow-md shadow-blue-500/20">
+            Solicitar Atención
+          </a>
+        </nav>
+
+        <!-- Mobile menu button (just a visual link) -->
+        <a href="aplication.html" class="md:hidden bg-[#2563EB] text-white text-sm font-semibold px-4 py-2 rounded-lg btn-scale hover:bg-[#1d4ed8] shadow-md shadow-blue-500/20">
+          Solicitar
+        </a>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Spacer for fixed header -->
+  <div class="h-16 md:h-20"></div>
+
+  <!-- ============================================================ -->
+  <!-- HERO SECTION                                                  -->
+  <!-- ============================================================ -->
+  <section id="hero" class="relative overflow-hidden bg-gradient-to-br from-[#2563EB]/5 via-white to-[#14B8A6]/5">
+    <!-- Background decorative elements -->
+    <div class="absolute top-0 right-0 w-72 h-72 bg-[#2563EB]/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+    <div class="absolute bottom-0 left-0 w-96 h-96 bg-[#14B8A6]/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-24 lg:py-32 relative z-10">
+      <div class="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
+
+        <!-- Left: Text content -->
+        <div class="text-center md:text-left">
+          <span class="inline-block bg-[#14B8A6]/10 text-[#14B8A6] text-xs font-semibold px-3 py-1.5 rounded-full mb-4 animate-fade-in-up">
+            Innovación en Salud Digital
+          </span>
+          <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#1F2937] leading-tight animate-fade-in-up">
+            Transformamos la
+            <span class="text-[#2563EB]">salud</span>
+            con tecnología
+            <span class="text-[#14B8A6]">inteligente</span>
+          </h1>
+          <p class="mt-5 text-base sm:text-lg text-[#1F2937]/60 leading-relaxed max-w-xl mx-auto md:mx-0 animate-fade-in-up-delay">
+            Somos pioneros en la transformación digital del sector salud mediante
+            <strong class="text-[#1F2937]">Inteligencia Artificial</strong>,
+            <strong class="text-[#1F2937]">automatización</strong> e
+            <strong class="text-[#1F2937]">integración de sistemas</strong>,
+            mejorando la eficiencia operativa y la experiencia del paciente
+            sin comprometer la seguridad y el cumplimiento normativo.
+          </p>
+
+          <!-- CTA Buttons -->
+          <div class="mt-8 flex flex-col sm:flex-row items-center gap-4 justify-center md:justify-start animate-fade-in-up-delay-2">
+            <a href="aplication.html" class="w-full sm:w-auto bg-[#2563EB] text-white text-base font-semibold px-8 py-3.5 rounded-xl btn-scale hover:bg-[#1d4ed8] shadow-lg shadow-blue-500/25 text-center">
+              Solicitar Atención
+            </a>
+            <a href="#features" class="w-full sm:w-auto text-[#1F2937]/70 text-base font-medium px-8 py-3.5 rounded-xl border border-[#1F2937]/10 hover:border-[#2563EB]/30 hover:text-[#2563EB] transition-all duration-200 text-center">
+              Conocer más
+            </a>
+          </div>
+
+          <!-- Trust indicators -->
+          <div class="mt-8 flex flex-wrap items-center gap-6 justify-center md:justify-start text-xs text-[#1F2937]/40 animate-fade-in-up-delay-2">
+            <span class="flex items-center gap-1.5">
+              <svg class="w-4 h-4 text-[#14B8A6]" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.403 12.652a3 3 0 000-5.304 3 3 0 00-3.75-3.751 3 3 0 00-5.305 0 3 3 0 00-3.751 3.75 3 3 0 000 5.305 3 3 0 003.75 3.751 3 3 0 005.305 0 3 3 0 003.751-3.75z" clip-rule="evenodd" />
+              </svg>
+              Cumplimiento HIPAA
+            </span>
+            <span class="flex items-center gap-1.5">
+              <svg class="w-4 h-4 text-[#14B8A6]" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.403 12.652a3 3 0 000-5.304 3 3 0 00-3.75-3.751 3 3 0 00-5.305 0 3 3 0 00-3.751 3.75 3 3 0 000 5.305 3 3 0 003.75 3.751 3 3 0 005.305 0 3 3 0 003.751-3.75z" clip-rule="evenodd" />
+              </svg>
+              ISO 27001
+            </span>
+            <span class="flex items-center gap-1.5">
+              <svg class="w-4 h-4 text-[#14B8A6]" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.403 12.652a3 3 0 000-5.304 3 3 0 00-3.75-3.751 3 3 0 00-5.305 0 3 3 0 00-3.751 3.75 3 3 0 000 5.305 3 3 0 003.75 3.751 3 3 0 005.305 0 3 3 0 003.751-3.75z" clip-rule="evenodd" />
+              </svg>
+              +50 Clínicas
+            </span>
+          </div>
+        </div>
+
+        <!-- Right: Hero illustration -->
+        <div class="hidden md:flex items-center justify-center animate-fade-in-up-delay">
+          <div class="relative w-full max-w-md">
+            <!-- Main card -->
+            <div class="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
+              <!-- Dashboard mockup -->
+              <div class="space-y-4">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 bg-[#2563EB]/10 rounded-full flex items-center justify-center">
+                    <span class="text-lg">🤖</span>
+                  </div>
+                  <div class="flex-1">
+                    <div class="h-3 bg-[#2563EB]/10 rounded-full w-3/4"></div>
+                    <div class="h-2 bg-gray-100 rounded-full w-1/2 mt-1.5"></div>
+                  </div>
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                  <div class="bg-[#14B8A6]/5 rounded-xl p-4 border border-[#14B8A6]/10">
+                    <div class="text-2xl font-bold text-[#14B8A6]">94%</div>
+                    <div class="text-xs text-[#1F2937]/50 mt-1">Eficiencia</div>
+                  </div>
+                  <div class="bg-[#2563EB]/5 rounded-xl p-4 border border-[#2563EB]/10">
+                    <div class="text-2xl font-bold text-[#2563EB]">3.2x</div>
+                    <div class="text-xs text-[#1F2937]/50 mt-1">Rendimiento</div>
+                  </div>
+                </div>
+                <div class="h-2 bg-gray-100 rounded-full w-full"></div>
+                <div class="h-2 bg-[#14B8A6]/20 rounded-full w-2/3"></div>
+                <div class="flex items-center gap-2 text-xs text-[#14B8A6] font-medium">
+                  <span class="w-2 h-2 bg-[#14B8A6] rounded-full animate-pulse"></span>
+                  IA en tiempo real · Datos seguros
+                </div>
+              </div>
+            </div>
+            <!-- Floating badge -->
+            <div class="absolute -bottom-4 -right-4 bg-white rounded-xl shadow-lg px-4 py-3 border border-gray-100">
+              <div class="flex items-center gap-2">
+                <span class="text-xl">🛡️</span>
+                <span class="text-xs font-semibold text-[#1F2937]">Datos protegidos</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- FEATURES / CARACTERÍSTICAS                                    -->
+  <!-- ============================================================ -->
+  <section id="features" class="py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Section header -->
+      <div class="text-center mb-14 md:mb-20">
+        <span class="inline-block bg-[#2563EB]/10 text-[#2563EB] text-xs font-semibold px-3 py-1.5 rounded-full mb-4">
+          Nuestras Capacidades
+        </span>
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-[#1F2937]">
+          Transformación digital<br class="sm:hidden" />
+          <span class="text-[#2563EB]">integral para tu salud</span>
+        </h2>
+        <p class="mt-4 text-[#1F2937]/60 max-w-2xl mx-auto text-sm sm:text-base">
+          Combinamos inteligencia artificial, automatización inteligente e integración de sistemas
+          para ofrecer una experiencia de salud más eficiente, segura y humana.
+        </p>
+      </div>
+
+      <!-- Features grid -->
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+
+        <!-- Feature 1 -->
+        <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-gray-100 card-hover animate-scale-in">
+          <div class="w-12 h-12 bg-[#2563EB]/10 rounded-xl flex items-center justify-center mb-5">
+            <svg class="w-6 h-6 text-[#2563EB]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" />
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-[#1F2937] mb-2">Inteligencia Artificial</h3>
+          <p class="text-sm text-[#1F2937]/60 leading-relaxed">
+            Modelos de IA entrenados con datos clínicos para diagnóstico asistido,
+            predicción de riesgos y personalización de tratamientos en tiempo real.
+          </p>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-gray-100 card-hover animate-scale-in">
+          <div class="w-12 h-12 bg-[#14B8A6]/10 rounded-xl flex items-center justify-center mb-5">
+            <svg class="w-6 h-6 text-[#14B8A6]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-[#1F2937] mb-2">Automatización Inteligente</h3>
+          <p class="text-sm text-[#1F2937]/60 leading-relaxed">
+            Automatizamos procesos administrativos y clínicos reduciendo tiempos
+            de espera, errores humanos y costos operativos hasta en un 60 %.
+          </p>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-gray-100 card-hover animate-scale-in">
+          <div class="w-12 h-12 bg-[#2563EB]/10 rounded-xl flex items-center justify-center mb-5">
+            <svg class="w-6 h-6 text-[#2563EB]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 21L3 16.5m0 0L7.5 12M3 16.5h9m-5.5 0H21" />
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-[#1F2937] mb-2">Integración de Sistemas</h3>
+          <p class="text-sm text-[#1F2937]/60 leading-relaxed">
+            Conectamos HIS, EHR, laboratorios y farmacias en una sola plataforma
+            interoperable con los más altos estándares de seguridad.
+          </p>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-gray-100 card-hover animate-scale-in">
+          <div class="w-12 h-12 bg-[#14B8A6]/10 rounded-xl flex items-center justify-center mb-5">
+            <svg class="w-6 h-6 text-[#14B8A6]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-[#1F2937] mb-2">Seguridad y Cumplimiento</h3>
+          <p class="text-sm text-[#1F2937]/60 leading-relaxed">
+            Cumplimos con HIPAA, GDPR e ISO 27001. Tus datos están protegidos
+            con encriptación de extremo a extremo y auditorías continuas.
+          </p>
+        </div>
+
+        <!-- Feature 5 -->
+        <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-gray-100 card-hover animate-scale-in">
+          <div class="w-12 h-12 bg-[#2563EB]/10 rounded-xl flex items-center justify-center mb-5">
+            <svg class="w-6 h-6 text-[#2563EB]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-[#1F2937] mb-2">Experiencia del Paciente</h3>
+          <p class="text-sm text-[#1F2937]/60 leading-relaxed">
+            Portales personalizados, telemedicina integrada y seguimiento
+            proactivo para una experiencia de cuidado continua y humanizada.
+          </p>
+        </div>
+
+        <!-- Feature 6 -->
+        <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-gray-100 card-hover animate-scale-in">
+          <div class="w-12 h-12 bg-[#14B8A6]/10 rounded-xl flex items-center justify-center mb-5">
+            <svg class="w-6 h-6 text-[#14B8A6]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6h16.5M3.75 12h16.5m-16.5 6h16.5" />
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-[#1F2937] mb-2">Análisis Predictivo</h3>
+          <p class="text-sm text-[#1F2937]/60 leading-relaxed">
+            Dashboards avanzados y modelos predictivos que anticipan brotes,
+            readmisiones y necesidades de recursos en tu institución.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- STATS / INDICADORES                                           -->
+  <!-- ============================================================ -->
+  <section class="py-14 md:py-20 bg-gradient-to-r from-[#2563EB] to-[#14B8A6]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 text-center">
+
+        <div>
+          <div class="text-3xl md:text-5xl font-bold text-white">+50</div>
+          <div class="text-sm md:text-base text-white/80 mt-1">Clínicas asociadas</div>
+        </div>
+        <div>
+          <div class="text-3xl md:text-5xl font-bold text-white">94%</div>
+          <div class="text-sm md:text-base text-white/80 mt-1">Eficiencia operativa</div>
+        </div>
+        <div>
+          <div class="text-3xl md:text-5xl font-bold text-white">2M+</div>
+          <div class="text-sm md:text-base text-white/80 mt-1">Pacientes impactados</div>
+        </div>
+        <div>
+          <div class="text-3xl md:text-5xl font-bold text-white">99.9%</div>
+          <div class="text-sm md:text-base text-white/80 mt-1">Uptime garantizado</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- TESTIMONIAL / CONFIANZA                                       -->
+  <!-- ============================================================ -->
+  <section class="py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="text-center mb-12">
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-[#1F2937]">
+          Lo que dicen nuestros <span class="text-[#14B8A6]">aliados</span>
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6 md:gap-8">
+
+        <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-gray-100 card-hover">
+          <div class="flex items-center gap-1 mb-4">
+            <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+            <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+            <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+            <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+            <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+          </div>
+          <p class="text-sm text-[#1F2937]/70 leading-relaxed mb-4">
+            "HealthCore transformó por completo nuestra gestión clínica. La IA nos permite
+            priorizar pacientes críticos y reducir tiempos de diagnóstico."
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-[#2563EB]/10 rounded-full flex items-center justify-center text-sm font-bold text-[#2563EB]">DM</div>
+            <div>
+              <div class="text-sm font-semibold text-[#1F2937]">Dra. María González</div>
+              <div class="text-xs text-[#1F2937]/50">Directora Médica · Clínica Los Andes</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-gray-100 card-hover">
+          <div class="flex items-center gap-1 mb-4">
+            <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+            <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+            <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+            <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+            <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+          </div>
+          <p class="text-sm text-[#1F2937]/70 leading-relaxed mb-4">
+            "La automatización de HealthCore nos ahorró más de 120 horas mensuales
+            en gestión administrativa. Ahora nuestro equipo se enfoca en lo que importa: el paciente."
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-[#14B8A6]/10 rounded-full flex items-center justify-center text-sm font-bold text-[#14B8A6">CR</div>
+            <div>
+              <div class="text-sm font-semibold text-[#1F2937]">Carlos Rivera</div>
+              <div class="text-xs text-[#1F2937]/50">CEO · Red Salud Integrada</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-gray-100 card-hover">
+          <div class="flex items-center gap-1 mb-4">
+            <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+            <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+            <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+            <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+            <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+          </div>
+          <p class="text-sm text-[#1F2937]/70 leading-relaxed mb-4">
+            "La integración con nuestros sistemas legacy fue rápida y sin fricción.
+            HealthCore entiende la industria y cumple con todas las regulaciones."
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-[#2563EB]/10 rounded-full flex items-center justify-center text-sm font-bold text-[#2563EB]">AL</div>
+            <div>
+              <div class="text-sm font-semibold text-[#1F2937]">Ana López</div>
+              <div class="text-xs text-[#1F2937]/50">Directora de TI · Hospital Central</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- CONTACT / CTA                                                 -->
+  <!-- ============================================================ -->
+  <section id="contact" class="py-16 md:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="bg-gradient-to-br from-[#2563EB] to-[#14B8A6] rounded-3xl p-8 md:p-14 shadow-2xl relative overflow-hidden">
+        <!-- Background decoration -->
+        <div class="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full blur-3xl"></div>
+
+        <div class="relative z-10 text-center">
+          <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4">
+            ¿Listo para transformar tu institución?
+          </h2>
+          <p class="text-white/80 text-sm sm:text-base md:text-lg max-w-2xl mx-auto mb-8">
+            Descubre cómo HealthCore puede ayudar a tu clínica u hospital a ofrecer
+            una atención más inteligente, eficiente y segura.
+          </p>
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href="aplication.html" class="w-full sm:w-auto bg-white text-[#2563EB] text-base font-semibold px-8 py-3.5 rounded-xl btn-scale hover:bg-gray-50 shadow-lg text-center">
+              Solicitar Atención
+            </a>
+            <a href="mailto:contacto@healthcore.com" class="w-full sm:w-auto text-white text-base font-medium px-8 py-3.5 rounded-xl border-2 border-white/30 hover:border-white/50 transition-all duration-200 text-center">
+              contact@healthcore.com
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- FOOTER                                                        -->
+  <!-- ============================================================ -->
+  <footer class="bg-[#1F2937] text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
+
+        <!-- Brand -->
+        <div class="sm:col-span-2 lg:col-span-1">
+          <div class="flex items-center gap-2 mb-4">
+            <span class="text-2xl">🏥</span>
+            <span class="text-xl font-bold text-white">Health<span class="text-[#14B8A6]">Core</span></span>
+          </div>
+          <p class="text-sm text-gray-400 leading-relaxed max-w-xs">
+            Transformando la salud digital con inteligencia artificial, automatización
+            e integración de sistemas · Seguridad y cumplimiento normativo.
+          </p>
+        </div>
+
+        <!-- Links -->
+        <div>
+          <h4 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Plataforma</h4>
+          <ul class="space-y-2.5">
+            <li><a href="#" class="text-sm text-gray-400 hover:text-[#14B8A6] transition-colors">IA en Salud</a></li>
+            <li><a href="#" class="text-sm text-gray-400 hover:text-[#14B8A6] transition-colors">Automatización</a></li>
+            <li><a href="#" class="text-sm text-gray-400 hover:text-[#14B8A6] transition-colors">Integración</a></li>
+            <li><a href="#" class="text-sm text-gray-400 hover:text-[#14B8A6] transition-colors">Seguridad</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Compañía</h4>
+          <ul class="space-y-2.5">
+            <li><a href="#" class="text-sm text-gray-400 hover:text-[#14B8A6] transition-colors">Sobre Nosotros</a></li>
+            <li><a href="#" class="text-sm text-gray-400 hover:text-[#14B8A6] transition-colors">Blog</a></li>
+            <li><a href="#" class="text-sm text-gray-400 hover:text-[#14B8A6] transition-colors">Carreras</a></li>
+            <li><a href="#" class="text-sm text-gray-400 hover:text-[#14B8A6] transition-colors">Contacto</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Legal</h4>
+          <ul class="space-y-2.5">
+            <li><a href="#" class="text-sm text-gray-400 hover:text-[#14B8A6] transition-colors">Privacidad</a></li>
+            <li><a href="#" class="text-sm text-gray-400 hover:text-[#14B8A6] transition-colors">Términos</a></li>
+            <li><a href="#" class="text-sm text-gray-400 hover:text-[#14B8A6] transition-colors">Cumplimiento</a></li>
+            <li><a href="#" class="text-sm text-gray-400 hover:text-[#14B8A6] transition-colors">Cookies</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Divider -->
+      <div class="border-t border-gray-800 mt-10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p class="text-xs text-gray-500">
+          &copy; 2026 HealthCore. Todos los derechos reservados.
+        </p>
+        <div class="flex items-center gap-4">
+          <a href="#" class="text-gray-500 hover:text-[#14B8A6] transition-colors" aria-label="LinkedIn">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" /></svg>
+          </a>
+          <a href="#" class="text-gray-500 hover:text-[#14B8A6] transition-colors" aria-label="Twitter">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" /></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+</body>
+</html>
