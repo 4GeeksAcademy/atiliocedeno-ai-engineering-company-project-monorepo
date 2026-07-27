@@ -183,6 +183,43 @@
               />
             </div>
 
+            <!-- Clínica más cercana -->
+            <div class="grid sm:grid-cols-2 gap-5">
+              <div>
+                <label for="clinicCountry" class="block text-sm font-semibold text-[#1F2937] mb-1.5">
+                  País <span class="text-red-500" aria-hidden="true">*</span>
+                </label>
+                <select
+                  id="clinicCountry"
+                  name="clinicCountry"
+                  required
+                  aria-required="true"
+                  aria-label="País de la clínica"
+                  class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-[#F8FAFC] text-sm text-[#1F2937] focus:outline-none focus:ring-2 focus:ring-[#2563EB]/20 focus:border-[#2563EB] transition-all duration-200 appearance-none"
+                >
+                  <option value="" disabled selected>Seleccionar país</option>
+                  <option value="usa">Estados Unidos</option>
+                  <option value="uk">Reino Unido</option>
+                </select>
+              </div>
+              <div>
+                <label for="clinic" class="block text-sm font-semibold text-[#1F2937] mb-1.5">
+                  Clínica más cercana <span class="text-red-500" aria-hidden="true">*</span>
+                </label>
+                <select
+                  id="clinic"
+                  name="clinic"
+                  required
+                  aria-required="true"
+                  aria-label="Clínica más cercana"
+                  disabled
+                  class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-[#F8FAFC] text-sm text-[#1F2937] focus:outline-none focus:ring-2 focus:ring-[#2563EB]/20 focus:border-[#2563EB] transition-all duration-200 appearance-none disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  <option value="" disabled selected>Seleccione un país primero</option>
+                </select>
+              </div>
+            </div>
+
           </div>
         </fieldset>
 
@@ -400,5 +437,65 @@
   </footer>
 
 <script src="validation.js"></script>
+<script>
+(function() {
+  "use strict";
+
+  const clinicData = {
+    usa: [
+      { value: "austin-downtown", label: "Austin Downtown — TX" },
+      { value: "houston-medical", label: "Houston Medical Center — TX" },
+      { value: "dallas-north", label: "Dallas North — TX" },
+      { value: "miami-beach", label: "Miami Beach — FL" },
+      { value: "orlando-east", label: "Orlando East — FL" },
+      { value: "atlanta-midtown", label: "Atlanta Midtown — GA" },
+      { value: "savannah-west", label: "Savannah West — GA" },
+      { value: "jacksonville-south", label: "Jacksonville South — FL" },
+      { value: "tampa-bay", label: "Tampa Bay — FL" }
+    ],
+    uk: [
+      { value: "london-bridge", label: "London Bridge" },
+      { value: "london-westminster", label: "London Westminster" },
+      { value: "manchester-city", label: "Manchester City Centre" }
+    ]
+  };
+
+  const countrySelect = document.getElementById("clinicCountry");
+  const clinicSelect = document.getElementById("clinic");
+
+  if (countrySelect && clinicSelect) {
+    countrySelect.addEventListener("change", function() {
+      const country = this.value;
+      const options = clinicData[country] || [];
+
+      clinicSelect.innerHTML = "";
+      clinicSelect.disabled = options.length === 0;
+
+      if (options.length > 0) {
+        const defaultOption = document.createElement("option");
+        defaultOption.value = "";
+        defaultOption.disabled = true;
+        defaultOption.selected = true;
+        defaultOption.textContent = "Seleccionar clínica";
+        clinicSelect.appendChild(defaultOption);
+
+        options.forEach(function(c) {
+          const opt = document.createElement("option");
+          opt.value = c.value;
+          opt.textContent = c.label;
+          clinicSelect.appendChild(opt);
+        });
+      } else {
+        const noOpt = document.createElement("option");
+        noOpt.value = "";
+        noOpt.disabled = true;
+        noOpt.selected = true;
+        noOpt.textContent = "Seleccione un país primero";
+        clinicSelect.appendChild(noOpt);
+      }
+    });
+  }
+})();
+</script>
 </body>
 </html>

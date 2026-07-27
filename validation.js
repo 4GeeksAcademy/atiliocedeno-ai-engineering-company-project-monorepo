@@ -31,6 +31,8 @@
     email: "Correo electrónico",
     phone: "Teléfono",
     address: "Dirección",
+    clinicCountry: "País",
+    clinic: "Clínica más cercana",
     allergy_description: "Descripción de la alergia",
     chronic_description: "Descripción de la enfermedad crónica",
     insurance_name: "Nombre del seguro médico",
@@ -84,6 +86,16 @@
     /** Select obligatorio */
     requiredSelect: (value, id) => {
       if (!value || value === "") return `Seleccione una opción para ${label(id).toLowerCase()}.`;
+      return null;
+    },
+
+    /** Clínica — validación especial con cascada */
+    clinic: (value) => {
+      const clinicSelect = document.getElementById("clinic");
+      if (!clinicSelect) return "Error al validar la clínica.";
+      if (clinicSelect.disabled) return "Debe seleccionar un país primero.";
+      const v = (value || "").trim();
+      if (!v) return "Seleccione una clínica de la lista.";
       return null;
     },
 
@@ -178,6 +190,8 @@
     { id: "email", validators: [validators.email] },
     { id: "phone", validators: [validators.phone] },
     { id: "address", validators: [validators.address] },
+    { id: "clinicCountry", validators: [validators.requiredSelect], isSelect: true },
+    { id: "clinic", validators: [validators.clinic] },
   ];
 
   // Radio groups
@@ -494,6 +508,18 @@
       if (input) {
         clearFieldErrorOnInput(input, field);
       }
+    }
+
+    // 2b. Cascada clínica: cuando cambia el país, re-validar el campo clínica
+    const clinicCountryInput = document.getElementById("clinicCountry");
+    const clinicFieldConfig = fieldsToValidate.find(function(f) { return f.id === "clinic"; });
+    if (clinicCountryInput && clinicFieldConfig) {
+      clinicCountryInput.addEventListener("change", function () {
+        // Pequeño retraso para que el DOM de clínicas se actualice
+        setTimeout(function() {
+          validateField(clinicFieldConfig);
+        }, 50);
+      });
     }
 
     for (const group of radioGroups) {
