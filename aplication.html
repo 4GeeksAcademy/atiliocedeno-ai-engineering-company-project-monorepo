@@ -14,25 +14,25 @@
   <!-- ============================================================ -->
   <!-- ENCABEZADO / NAVEGACIÓN                                       -->
   <!-- ============================================================ -->
-  <header class="bg-white/90 backdrop-blur-md shadow-sm">
+  <header role="banner" class="bg-white/90 backdrop-blur-md shadow-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16 md:h-20">
 
         <!-- Logo -->
-        <a href="index.html" class="flex items-center gap-2">
-          <span class="text-2xl">🏥</span>
+        <a href="index.html" class="flex items-center gap-2" aria-label="HealthCore - Ir al inicio">
+          <span class="text-2xl" aria-hidden="true">🏥</span>
           <span class="text-xl font-bold text-[#2563EB] tracking-tight">Health<span class="text-[#14B8A6]">Core</span></span>
         </a>
 
         <!-- Navigation - Desktop -->
-        <nav class="hidden md:flex items-center gap-8">
+        <nav class="hidden md:flex items-center gap-8" aria-label="Navegación principal">
           <a href="index.html" class="text-sm font-medium text-[#1F2937]/70 hover:text-[#2563EB] transition-colors duration-200">Inicio</a>
           <a href="index.html#features" class="text-sm font-medium text-[#1F2937]/70 hover:text-[#2563EB] transition-colors duration-200">Características</a>
           <a href="index.html#contact" class="text-sm font-medium text-[#1F2937]/70 hover:text-[#2563EB] transition-colors duration-200">Contacto</a>
         </nav>
 
         <!-- Mobile nav -->
-        <a href="index.html" class="md:hidden text-sm font-medium text-[#2563EB] hover:underline">
+        <a href="index.html" class="md:hidden text-sm font-medium text-[#2563EB] hover:underline" aria-label="Volver al inicio">
           Volver al inicio
         </a>
 
@@ -54,22 +54,22 @@
         <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-[#1F2937]">
           Cuéntanos sobre ti
         </h1>
-        <p class="mt-3 text-sm sm:text-base text-[#1F2937]/60 max-w-lg mx-auto">
+        <p class="mt-3 text-sm sm:text-base text-[#1F2937]/60 max-w-lg mx-auto" id="form-description">
           Completa el formulario y uno de nuestros especialistas en salud digital
           se comunicará contigo a la brevedad.
         </p>
-        <div class="gradient-line mx-auto mt-4"></div>
+        <div class="gradient-line mx-auto mt-4" aria-hidden="true"></div>
       </div>
 
       <!-- Form -->
-      <form action="#" method="POST" class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 sm:p-8 md:p-10">
+      <form action="#" method="POST" class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 sm:p-8 md:p-10" aria-label="Formulario de solicitud de atención médica" aria-describedby="form-description">
 
         <!-- ============================================ -->
         <!-- 1. DATOS PERSONALES                          -->
         <!-- ============================================ -->
-        <fieldset>
+        <fieldset aria-label="Datos personales del paciente">
           <legend class="text-lg font-bold text-[#1F2937] flex items-center gap-2 mb-6">
-            <span class="w-8 h-8 bg-[#2563EB]/10 rounded-full flex items-center justify-center text-sm font-bold text-[#2563EB]">1</span>
+            <span class="w-8 h-8 bg-[#2563EB]/10 rounded-full flex items-center justify-center text-sm font-bold text-[#2563EB]" aria-hidden="true">1</span>
             Datos Personales
           </legend>
 
@@ -78,13 +78,15 @@
             <!-- Nombre completo -->
             <div>
               <label for="fullname" class="block text-sm font-semibold text-[#1F2937] mb-1.5">
-                Nombre completo <span class="text-red-500">*</span>
+                Nombre completo <span class="text-red-500" aria-hidden="true">*</span>
               </label>
               <input
                 type="text"
                 id="fullname"
                 name="fullname"
                 required
+                aria-required="true"
+                aria-label="Nombre completo"
                 placeholder="Ej: María García López"
                 class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-[#F8FAFC] text-sm text-[#1F2937] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#2563EB]/20 focus:border-[#2563EB] transition-all duration-200"
               />
@@ -94,24 +96,28 @@
             <div class="grid sm:grid-cols-2 gap-5">
               <div>
                 <label for="birthdate" class="block text-sm font-semibold text-[#1F2937] mb-1.5">
-                  Fecha de nacimiento <span class="text-red-500">*</span>
+                  Fecha de nacimiento <span class="text-red-500" aria-hidden="true">*</span>
                 </label>
                 <input
                   type="date"
                   id="birthdate"
                   name="birthdate"
                   required
+                  aria-required="true"
+                  aria-label="Fecha de nacimiento"
                   class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-[#F8FAFC] text-sm text-[#1F2937] focus:outline-none focus:ring-2 focus:ring-[#2563EB]/20 focus:border-[#2563EB] transition-all duration-200"
                 />
               </div>
               <div>
                 <label for="sex" class="block text-sm font-semibold text-[#1F2937] mb-1.5">
-                  Sexo <span class="text-red-500">*</span>
+                  Sexo <span class="text-red-500" aria-hidden="true">*</span>
                 </label>
                 <select
                   id="sex"
                   name="sex"
                   required
+                  aria-required="true"
+                  aria-label="Sexo"
                   class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-[#F8FAFC] text-sm text-[#1F2937] focus:outline-none focus:ring-2 focus:ring-[#2563EB]/20 focus:border-[#2563EB] transition-all duration-200 appearance-none"
                 >
                   <option value="" disabled selected>Seleccionar</option>
@@ -127,26 +133,30 @@
             <div class="grid sm:grid-cols-2 gap-5">
               <div>
                 <label for="email" class="block text-sm font-semibold text-[#1F2937] mb-1.5">
-                  Correo electrónico <span class="text-red-500">*</span>
+                  Correo electrónico <span class="text-red-500" aria-hidden="true">*</span>
                 </label>
                 <input
                   type="email"
                   id="email"
                   name="email"
                   required
+                  aria-required="true"
+                  aria-label="Correo electrónico"
                   placeholder="correo@ejemplo.com"
                   class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-[#F8FAFC] text-sm text-[#1F2937] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#2563EB]/20 focus:border-[#2563EB] transition-all duration-200"
                 />
               </div>
               <div>
                 <label for="phone" class="block text-sm font-semibold text-[#1F2937] mb-1.5">
-                  Teléfono <span class="text-red-500">*</span>
+                  Teléfono <span class="text-red-500" aria-hidden="true">*</span>
                 </label>
                 <input
                   type="tel"
                   id="phone"
                   name="phone"
                   required
+                  aria-required="true"
+                  aria-label="Teléfono"
                   placeholder="+56 9 1234 5678"
                   class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-[#F8FAFC] text-sm text-[#1F2937] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#2563EB]/20 focus:border-[#2563EB] transition-all duration-200"
                 />
@@ -156,13 +166,15 @@
             <!-- Dirección -->
             <div>
               <label for="address" class="block text-sm font-semibold text-[#1F2937] mb-1.5">
-                Dirección <span class="text-red-500">*</span>
+                Dirección <span class="text-red-500" aria-hidden="true">*</span>
               </label>
               <input
                 type="text"
                 id="address"
                 name="address"
                 required
+                aria-required="true"
+                aria-label="Dirección"
                 placeholder="Calle, número, ciudad, país"
                 class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-[#F8FAFC] text-sm text-[#1F2937] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#2563EB]/20 focus:border-[#2563EB] transition-all duration-200"
               />
@@ -177,9 +189,9 @@
         <!-- ============================================ -->
         <!-- 2. INFORMACIÓN MÉDICA                        -->
         <!-- ============================================ -->
-        <fieldset>
+        <fieldset aria-label="Información médica del paciente">
           <legend class="text-lg font-bold text-[#1F2937] flex items-center gap-2 mb-6">
-            <span class="w-8 h-8 bg-[#14B8A6]/10 rounded-full flex items-center justify-center text-sm font-bold text-[#14B8A6]">2</span>
+            <span class="w-8 h-8 bg-[#14B8A6]/10 rounded-full flex items-center justify-center text-sm font-bold text-[#14B8A6]" aria-hidden="true">2</span>
             Información Médica
           </legend>
 
@@ -189,15 +201,15 @@
             <!-- ALERGIAS - details/summary                   -->
             <!-- ============================================ -->
             <details class="group bg-[#F8FAFC] rounded-xl border border-gray-200 open:border-[#2563EB]/30 open:ring-1 open:ring-[#2563EB]/10 transition-all duration-200">
-              <summary class="flex items-center justify-between px-5 py-4 cursor-pointer list-none">
+              <summary class="flex items-center justify-between px-5 py-4 cursor-pointer list-none" aria-label="Sección de alergias - haga clic para expandir">
                 <div class="flex items-center gap-3">
-                  <span class="w-8 h-8 bg-[#2563EB]/10 rounded-lg flex items-center justify-center text-base">⚠️</span>
+                  <span class="w-8 h-8 bg-[#2563EB]/10 rounded-lg flex items-center justify-center text-base" aria-hidden="true">⚠️</span>
                   <div>
                     <span class="text-sm font-semibold text-[#1F2937]">¿Tiene alergias?</span>
                     <span class="block text-xs text-[#1F2937]/50 mt-0.5">Haga clic para desplegar</span>
                   </div>
                 </div>
-                <svg class="w-5 h-5 text-[#1F2937]/40 transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <svg class="w-5 h-5 text-[#1F2937]/40 transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                 </svg>
               </summary>
@@ -233,15 +245,15 @@
             <!-- ENFERMEDADES CRÓNICAS - details/summary       -->
             <!-- ============================================ -->
             <details class="group bg-[#F8FAFC] rounded-xl border border-gray-200 open:border-[#14B8A6]/30 open:ring-1 open:ring-[#14B8A6]/10 transition-all duration-200">
-              <summary class="flex items-center justify-between px-5 py-4 cursor-pointer list-none">
+              <summary class="flex items-center justify-between px-5 py-4 cursor-pointer list-none" aria-label="Sección de enfermedades crónicas - haga clic para expandir">
                 <div class="flex items-center gap-3">
-                  <span class="w-8 h-8 bg-[#14B8A6]/10 rounded-lg flex items-center justify-center text-base">🫀</span>
+                  <span class="w-8 h-8 bg-[#14B8A6]/10 rounded-lg flex items-center justify-center text-base" aria-hidden="true">🫀</span>
                   <div>
                     <span class="text-sm font-semibold text-[#1F2937]">¿Padece alguna enfermedad crónica?</span>
                     <span class="block text-xs text-[#1F2937]/50 mt-0.5">Haga clic para desplegar</span>
                   </div>
                 </div>
-                <svg class="w-5 h-5 text-[#1F2937]/40 transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <svg class="w-5 h-5 text-[#1F2937]/40 transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                 </svg>
               </summary>
@@ -277,15 +289,15 @@
             <!-- SEGURO MÉDICO - details/summary              -->
             <!-- ============================================ -->
             <details class="group bg-[#F8FAFC] rounded-xl border border-gray-200 open:border-[#2563EB]/30 open:ring-1 open:ring-[#2563EB]/10 transition-all duration-200">
-              <summary class="flex items-center justify-between px-5 py-4 cursor-pointer list-none">
+              <summary class="flex items-center justify-between px-5 py-4 cursor-pointer list-none" aria-label="Sección de seguro médico - haga clic para expandir">
                 <div class="flex items-center gap-3">
-                  <span class="w-8 h-8 bg-[#2563EB]/10 rounded-lg flex items-center justify-center text-base">🛡️</span>
+                  <span class="w-8 h-8 bg-[#2563EB]/10 rounded-lg flex items-center justify-center text-base" aria-hidden="true">🛡️</span>
                   <div>
                     <span class="text-sm font-semibold text-[#1F2937]">¿Tiene seguro médico?</span>
                     <span class="block text-xs text-[#1F2937]/50 mt-0.5">Haga clic para desplegar</span>
                   </div>
                 </div>
-                <svg class="w-5 h-5 text-[#1F2937]/40 transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <svg class="w-5 h-5 text-[#1F2937]/40 transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                 </svg>
               </summary>
@@ -331,6 +343,7 @@
           <button
             type="submit"
             class="w-full sm:w-auto bg-[#2563EB] text-white text-base font-semibold px-10 py-3.5 rounded-xl btn-scale hover:bg-[#1d4ed8] shadow-lg shadow-blue-500/25 cursor-pointer"
+            aria-label="Enviar solicitud de atención médica"
           >
             Enviar Solicitud
           </button>
@@ -338,6 +351,7 @@
           <a
             href="index.html"
             class="text-sm text-[#1F2937]/50 hover:text-[#2563EB] transition-colors duration-200"
+            aria-label="Cancelar y volver a la página de inicio"
           >
             Cancelar y volver al inicio
           </a>
@@ -347,7 +361,7 @@
         <!-- Privacy note -->
         <p class="mt-6 text-xs text-[#1F2937]/40 leading-relaxed">
           Al enviar este formulario aceptas que tus datos sean tratados conforme a nuestra
-          <a href="#" class="text-[#2563EB] hover:underline">Política de Privacidad</a>.
+          <a href="#" class="text-[#2563EB] hover:underline" aria-label="Ver política de privacidad">Política de Privacidad</a>.
           HealthCore cumple con HIPAA, GDPR e ISO 27001 para garantizar la protección
           de tu información.
         </p>
@@ -360,21 +374,21 @@
   <!-- ============================================================ -->
   <!-- FOOTER                                                        -->
   <!-- ============================================================ -->
-  <footer class="bg-[#1F2937] text-white">
+  <footer class="bg-[#1F2937] text-white" role="contentinfo">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-10">
 
       <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
         <div class="flex items-center gap-2">
-          <span class="text-lg">🏥</span>
+          <span class="text-lg" aria-hidden="true">🏥</span>
           <span class="text-sm font-bold text-white">Health<span class="text-[#14B8A6]">Core</span></span>
         </div>
         <p class="text-xs text-gray-500">
           &copy; 2026 HealthCore. Todos los derechos reservados.
         </p>
         <div class="flex items-center gap-4">
-          <a href="index.html" class="text-xs text-gray-400 hover:text-[#14B8A6] transition-colors">Inicio</a>
-          <a href="#" class="text-xs text-gray-400 hover:text-[#14B8A6] transition-colors">Privacidad</a>
-          <a href="#" class="text-xs text-gray-400 hover:text-[#14B8A6] transition-colors">Términos</a>
+          <a href="index.html" class="text-xs text-gray-400 hover:text-[#14B8A6] transition-colors" aria-label="Ir a la página de inicio">Inicio</a>
+          <a href="#" class="text-xs text-gray-400 hover:text-[#14B8A6] transition-colors" aria-label="Ver política de privacidad">Privacidad</a>
+          <a href="#" class="text-xs text-gray-400 hover:text-[#14B8A6] transition-colors" aria-label="Ver términos y condiciones">Términos</a>
         </div>
       </div>
 

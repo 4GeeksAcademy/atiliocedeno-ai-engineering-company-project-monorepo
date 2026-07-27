@@ -7,21 +7,17 @@ Necesito crear un crear un landing page (index.html) y formulario alojado en un 
 - Tailwind CSS v4 mediante CDN:
 <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
-NO utilices:
-- React
-- Vue
-- Angular
-- JavaScript
-- Alpine.js
-- Bootstrap
-- Tailwind v3
-- cdn.tailwindcss.com
+Solo utilizaremos:
+- tailwind
+- js--> para la validación del formulario
+- html
 
 Debe tener la siguiente estructura de archivos:
 
 - index.html
 - aplication.html
 - style.css
+- validation.js 
 
 Objetivo:
 
