@@ -20,56 +20,149 @@
   const ERROR_MSG_ID_PREFIX = "error-";
 
   /* ============================================================== */
-  /* REGLAS DE VALIDACIÓN                                            */
+  /* REGLAS DE VALIDACIÓN — mensajes específicos y robustos          */
   /* ============================================================== */
 
+  /** Etiqueta legible de cada campo para los mensajes */
+  const fieldLabels = {
+    fullname: "Nombre completo",
+    birthdate: "Fecha de nacimiento",
+    sex: "Sexo",
+    email: "Correo electrónico",
+    phone: "Teléfono",
+    address: "Dirección",
+    allergy_description: "Descripción de la alergia",
+    chronic_description: "Descripción de la enfermedad crónica",
+    insurance_name: "Nombre del seguro médico",
+  };
+
+  function label(id) {
+    return fieldLabels[id] || "Este campo";
+  }
+
   const validators = {
-    /** Campo de texto obligatorio */
-    requiredText: (value) => {
-      if (!value || value.trim() === "") return "Este campo es obligatorio.";
+    /** Nombre completo — al menos dos palabras, solo letras y acentos */
+    requiredText: (value, id) => {
+      const v = (value || "").trim();
+      if (!v) return `${label(id)} es obligatorio.`;
       return null;
     },
 
-    /** Correo electrónico */
-    email: (value) => {
-      if (!value || value.trim() === "") return "Este campo es obligatorio.";
-      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!re.test(value.trim())) return "Ingrese un correo electrónico válido (ej: correo@ejemplo.com).";
-      return null;
-    },
-
-    /** Teléfono */
-    phone: (value) => {
-      if (!value || value.trim() === "") return "Este campo es obligatorio.";
-      // Acepta: +56 9 1234 5678, +56912345678, 1234-5678, +1 (555) 123-4567, etc.
-      const digits = value.replace(/\D/g, "");
-      if (digits.length < 7) return "Ingrese un número de teléfono válido (mínimo 7 dígitos).";
+    fullname: (value) => {
+      const v = (value || "").trim();
+      if (!v) return "El nombre completo es obligatorio.";
+      if (v.length < 5) return "El nombre completo debe tener al menos 5 caracteres.";
+      if (v.length > 120) return "El nombre completo no puede exceder los 120 caracteres.";
+      if (!/^[a-zA-ZáéíóúüñÁÉÍÓÚÜÑ\s.'-]+$/.test(v)) return "El nombre completo solo puede contener letras, espacios, puntos y guiones.";
+      if (v.split(/\s+/).length < 2) return "Debe ingresar al menos un nombre y un apellido.";
       return null;
     },
 
     /** Fecha de nacimiento */
     date: (value) => {
-      if (!value) return "Este campo es obligatorio.";
-      const dateObj = new Date(value);
-      if (isNaN(dateObj.getTime())) return "Ingrese una fecha válida.";
-      if (dateObj > new Date()) return "La fecha no puede ser posterior a hoy.";
-      // Mayoría de edad simple: 12 años como mínimo razonable para atención médica
-      const minDate = new Date();
-      minDate.setFullYear(minDate.getFullYear() - 120);
-      if (dateObj < minDate) return "Verifique la fecha de nacimiento.";
+      if (!value) return "La fecha de nacimiento es obligatoria.";
+      const dateObj = new Date(value + "T00:00:00");
+      if (isNaN(dateObj.getTime())) return "La fecha de nacimiento no es válida. Use el formato DD/MM/AAAA.";
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      if (dateObj > today) return "La fecha de nacimiento no puede ser posterior a la fecha de hoy.";
+      if (dateObj.getFullYear() < 1900) return "Verifique la fecha de nacimiento. El año parece incorrecto.";
+
+      // Calcular edad mínima (12 años para atención médica)
+      const minAge = new Date();
+      minAge.setFullYear(minAge.getFullYear() - 12);
+      if (dateObj > minAge) return "Debe tener al menos 12 años para solicitar atención médica.";
+
+      // Edad máxima razonable
+      const maxAge = new Date();
+      maxAge.setFullYear(maxAge.getFullYear() - 120);
+      if (dateObj < maxAge) return "Verifique la fecha de nacimiento. Si tiene más de 120 años, contáctenos directamente.";
+
       return null;
     },
 
     /** Select obligatorio */
-    requiredSelect: (value) => {
-      if (!value || value === "") return "Seleccione una opción.";
+    requiredSelect: (value, id) => {
+      if (!value || value === "") return `Seleccione una opción para ${label(id).toLowerCase()}.`;
+      return null;
+    },
+
+    /** Correo electrónico — varias capas de validación */
+    email: (value) => {
+      const v = (value || "").trim();
+      if (!v) return "El correo electrónico es obligatorio.";
+      if (v.length > 254) return "El correo electrónico no puede exceder los 254 caracteres.";
+
+      // Estructura básica
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!re.test(v)) return "Ingrese un correo electrónico válido (ej: usuario@dominio.com).";
+
+      const [localPart, domain] = v.split("@");
+
+      if (localPart.length > 64) return "La parte local del correo (antes de @) es demasiado larga.";
+
+      // Verificar que el dominio tenga al menos un punto después de @
+      if (!domain.includes(".")) return "El dominio del correo debe incluir un punto (ej: correo@dominio.com).";
+
+      // Verificar TLD (última parte después del último punto)
+      const parts = domain.split(".");
+      const tld = parts[parts.length - 1];
+      if (tld.length < 2) return "El dominio del correo debe tener una extensión válida (ej: .com, .es, .org).";
+
+      // Caracteres válidos en local-part
+      if (!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+$/.test(localPart)) return "El correo contiene caracteres no permitidos en la parte local.";
+
+      // Dominio con caracteres válidos
+      if (!/^[a-zA-Z0-9.-]+$/.test(domain)) return "El dominio del correo contiene caracteres no válidos.";
+
+      return null;
+    },
+
+    /** Teléfono — validación internacional robusta */
+    phone: (value) => {
+      const v = (value || "").trim();
+      if (!v) return "El número de teléfono es obligatorio.";
+      if (v.length < 7) return "El número de teléfono es demasiado corto. Ingrese al menos 7 dígitos.";
+      if (v.length > 20) return "El número de teléfono es demasiado largo. Verifique el número ingresado.";
+
+      // Extraer solo dígitos
+      const digits = v.replace(/\D/g, "");
+      if (digits.length < 7) return "El número de teléfono debe contener al menos 7 dígitos.";
+      if (digits.length > 15) return "El número de teléfono no puede tener más de 15 dígitos.";
+
+      // Verificar que no sean solo dígitos repetidos (ej: 1111111111)
+      if (/^(\d)\1{6,}$/.test(digits)) return "El número de teléfono no puede ser una secuencia repetitiva.";
+
+      // Verificar caracteres válidos en el formato ingresado
+      if (!/^[\d\s\+\-\(\)]+$/.test(v)) return "El teléfono solo puede contener dígitos, espacios, +, -, paréntesis.";
+
+      // Si comienza con +, debe tener el código de país
+      if (v.startsWith("+") && digits.length < 8) return "Si incluye el código de país (+), el número debe tener al menos 8 dígitos.";
+
+      return null;
+    },
+
+    /** Dirección */
+    address: (value) => {
+      const v = (value || "").trim();
+      if (!v) return "La dirección es obligatoria.";
+      if (v.length < 10) return "La dirección es demasiado corta. Incluya calle, número, ciudad y país.";
+      if (v.length > 200) return "La dirección no puede exceder los 200 caracteres.";
+      if (!/^[a-zA-Z0-9áéíóúüñÁÉÍÓÚÜÑ\s,.#/\-ºª]+$/.test(v)) return "La dirección contiene caracteres no válidos.";
+      // Al menos un número en la dirección
+      if (!/\d/.test(v)) return "La dirección debe incluir un número (casa, piso, o apartamento).";
       return null;
     },
 
     /** Radio button group obligatorio */
     requiredRadio: (name) => {
+      const labelsMap = {
+        has_allergies: "¿Tiene alergias?",
+        has_chronic: "¿Padece alguna enfermedad crónica?",
+        has_insurance: "¿Tiene seguro médico?",
+      };
       const checked = document.querySelector(`input[name="${name}"]:checked`);
-      if (!checked) return "Seleccione una opción.";
+      if (!checked) return `Debe responder: ${labelsMap[name] || "esta pregunta"}.`;
       return null;
     },
   };
@@ -79,12 +172,12 @@
   /* ============================================================== */
 
   const fieldsToValidate = [
-    { id: "fullname", validators: [validators.requiredText] },
+    { id: "fullname", validators: [validators.requiredText, validators.fullname] },
     { id: "birthdate", validators: [validators.date] },
     { id: "sex", validators: [validators.requiredSelect], isSelect: true },
     { id: "email", validators: [validators.email] },
     { id: "phone", validators: [validators.phone] },
-    { id: "address", validators: [validators.requiredText] },
+    { id: "address", validators: [validators.address] },
   ];
 
   // Radio groups
@@ -186,7 +279,7 @@
     let firstError = null;
 
     for (const validator of field.validators) {
-      const error = validator(value);
+      const error = validator(value, field.id);
       if (error) {
         firstError = error;
         break;
@@ -224,8 +317,13 @@
       if (checked && checked.value === "si") {
         // Si respondió "Sí", el campo descriptivo es obligatorio
         const condValue = conditionalField.value.trim();
+        const condLabels = {
+          allergy_description: "Por favor, describa sus alergias en detalle.",
+          chronic_description: "Por favor, describa su enfermedad crónica.",
+          insurance_name: "Por favor, indique el nombre de su seguro médico.",
+        };
         if (!condValue) {
-          setFieldError(conditionalField, "Por favor, proporcione más información.");
+          setFieldError(conditionalField, condLabels[conditionalField.id] || "Este campo es obligatorio.");
           return false;
         } else {
           setFieldSuccess(conditionalField);
