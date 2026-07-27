@@ -62,7 +62,7 @@
       </div>
 
       <!-- Form -->
-      <form action="#" method="POST" class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 sm:p-8 md:p-10" aria-label="Formulario de solicitud de atención médica" aria-describedby="form-description">
+      <form action="#" method="POST" id="hc-form" class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 sm:p-8 md:p-10" aria-label="Formulario de solicitud de atención médica" aria-describedby="form-description">
 
         <!-- ============================================ -->
         <!-- 1. DATOS PERSONALES                          -->
@@ -217,11 +217,11 @@
                 <div class="flex flex-col sm:flex-row items-start gap-4">
                   <div class="flex items-center gap-4">
                     <label class="flex items-center gap-2 cursor-pointer">
-                      <input type="radio" name="has_allergies" value="si" class="w-4 h-4 text-[#2563EB] border-gray-300 focus:ring-[#2563EB]" />
+                      <input type="radio" name="has_allergies" value="si" required class="w-4 h-4 text-[#2563EB] border-gray-300 focus:ring-[#2563EB]" />
                       <span class="text-sm text-[#1F2937]">Sí</span>
                     </label>
                     <label class="flex items-center gap-2 cursor-pointer">
-                      <input type="radio" name="has_allergies" value="no" class="w-4 h-4 text-[#2563EB] border-gray-300 focus:ring-[#2563EB]" />
+                      <input type="radio" name="has_allergies" value="no" required class="w-4 h-4 text-[#2563EB] border-gray-300 focus:ring-[#2563EB]" />
                       <span class="text-sm text-[#1F2937]">No</span>
                     </label>
                   </div>
@@ -261,11 +261,11 @@
                 <div class="flex flex-col sm:flex-row items-start gap-4">
                   <div class="flex items-center gap-4">
                     <label class="flex items-center gap-2 cursor-pointer">
-                      <input type="radio" name="has_chronic" value="si" class="w-4 h-4 text-[#14B8A6] border-gray-300 focus:ring-[#14B8A6]" />
+                      <input type="radio" name="has_chronic" value="si" required class="w-4 h-4 text-[#14B8A6] border-gray-300 focus:ring-[#14B8A6]" />
                       <span class="text-sm text-[#1F2937]">Sí</span>
                     </label>
                     <label class="flex items-center gap-2 cursor-pointer">
-                      <input type="radio" name="has_chronic" value="no" class="w-4 h-4 text-[#14B8A6] border-gray-300 focus:ring-[#14B8A6]" />
+                      <input type="radio" name="has_chronic" value="no" required class="w-4 h-4 text-[#14B8A6] border-gray-300 focus:ring-[#14B8A6]" />
                       <span class="text-sm text-[#1F2937]">No</span>
                     </label>
                   </div>
@@ -305,11 +305,11 @@
                 <div class="flex flex-col sm:flex-row items-start gap-4">
                   <div class="flex items-center gap-4">
                     <label class="flex items-center gap-2 cursor-pointer">
-                      <input type="radio" name="has_insurance" value="si" class="w-4 h-4 text-[#2563EB] border-gray-300 focus:ring-[#2563EB]" />
+                      <input type="radio" name="has_insurance" value="si" required class="w-4 h-4 text-[#2563EB] border-gray-300 focus:ring-[#2563EB]" />
                       <span class="text-sm text-[#1F2937]">Sí</span>
                     </label>
                     <label class="flex items-center gap-2 cursor-pointer">
-                      <input type="radio" name="has_insurance" value="no" class="w-4 h-4 text-[#2563EB] border-gray-300 focus:ring-[#2563EB]" />
+                      <input type="radio" name="has_insurance" value="no" required class="w-4 h-4 text-[#2563EB] border-gray-300 focus:ring-[#2563EB]" />
                       <span class="text-sm text-[#1F2937]">No</span>
                     </label>
                   </div>
@@ -395,5 +395,6 @@
     </div>
   </footer>
 
+<script src="validation.js"></script>
 </body>
 </html>
