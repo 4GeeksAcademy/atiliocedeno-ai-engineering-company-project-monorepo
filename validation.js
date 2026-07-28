@@ -19,162 +19,152 @@
   const ERROR_TEXT_CLASS = "text-red-500";
   const ERROR_MSG_ID_PREFIX = "error-";
 
+  /** Detecta si el formulario está en inglés según el <html lang> */
+  function isEnglish() {
+    return document.documentElement.lang === "en";
+  }
+
   /* ============================================================== */
   /* REGLAS DE VALIDACIÓN — mensajes específicos y robustos          */
   /* ============================================================== */
 
   /** Etiqueta legible de cada campo para los mensajes */
-  const fieldLabels = {
-    fullname: "Nombre completo",
-    birthdate: "Fecha de nacimiento",
-    sex: "Sexo",
-    email: "Correo electrónico",
-    phone: "Teléfono",
-    address: "Dirección",
-    clinicCountry: "País",
-    clinic: "Clínica más cercana",
-    allergy_description: "Descripción de la alergia",
-    chronic_description: "Descripción de la enfermedad crónica",
-    insurance_name: "Nombre del seguro médico",
-  };
-
-  function label(id) {
-    return fieldLabels[id] || "Este campo";
+  function fieldLabel(id) {
+    const labels = {
+      fullname: isEnglish() ? "Full name" : "Nombre completo",
+      birthdate: isEnglish() ? "Date of birth" : "Fecha de nacimiento",
+      sex: isEnglish() ? "Sex" : "Sexo",
+      email: isEnglish() ? "Email" : "Correo electrónico",
+      phone: isEnglish() ? "Phone" : "Teléfono",
+      address: isEnglish() ? "Address" : "Dirección",
+      clinicCountry: isEnglish() ? "Country" : "País",
+      clinic: isEnglish() ? "Nearest clinic" : "Clínica más cercana",
+      allergy_description: isEnglish() ? "Allergy description" : "Descripción de la alergia",
+      chronic_description: isEnglish() ? "Chronic condition description" : "Descripción de la enfermedad crónica",
+      insurance_name: isEnglish() ? "Insurance provider name" : "Nombre del seguro médico",
+    };
+    return labels[id] || (isEnglish() ? "This field" : "Este campo");
   }
 
   const validators = {
-    /** Nombre completo — al menos dos palabras, solo letras y acentos */
+    /** Campo de texto obligatorio */
     requiredText: (value, id) => {
       const v = (value || "").trim();
-      if (!v) return `${label(id)} es obligatorio.`;
+      if (!v) return isEnglish() ? `${fieldLabel(id)} is required.` : `${fieldLabel(id)} es obligatorio.`;
       return null;
     },
 
+    /** Nombre completo */
     fullname: (value) => {
       const v = (value || "").trim();
-      if (!v) return "El nombre completo es obligatorio.";
-      if (v.length < 5) return "El nombre completo debe tener al menos 5 caracteres.";
-      if (v.length > 120) return "El nombre completo no puede exceder los 120 caracteres.";
-      if (!/^[a-zA-ZáéíóúüñÁÉÍÓÚÜÑ\s.'-]+$/.test(v)) return "El nombre completo solo puede contener letras, espacios, puntos y guiones.";
-      if (v.split(/\s+/).length < 2) return "Debe ingresar al menos un nombre y un apellido.";
+      if (!v) return isEnglish() ? "Full name is required." : "El nombre completo es obligatorio.";
+      if (v.length < 5) return isEnglish() ? "Full name must be at least 5 characters." : "El nombre completo debe tener al menos 5 caracteres.";
+      if (v.length > 120) return isEnglish() ? "Full name cannot exceed 120 characters." : "El nombre completo no puede exceder los 120 caracteres.";
+      if (!/^[a-zA-ZáéíóúüñÁÉÍÓÚÜÑ\s.'-]+$/.test(v)) return isEnglish() ? "Full name can only contain letters, spaces, dots and hyphens." : "El nombre completo solo puede contener letras, espacios, puntos y guiones.";
+      if (v.split(/\s+/).length < 2) return isEnglish() ? "Please enter at least a first and last name." : "Debe ingresar al menos un nombre y un apellido.";
       return null;
     },
 
     /** Fecha de nacimiento */
     date: (value) => {
-      if (!value) return "La fecha de nacimiento es obligatoria.";
+      if (!value) return isEnglish() ? "Date of birth is required." : "La fecha de nacimiento es obligatoria.";
       const dateObj = new Date(value + "T00:00:00");
-      if (isNaN(dateObj.getTime())) return "La fecha de nacimiento no es válida. Use el formato DD/MM/AAAA.";
+      if (isNaN(dateObj.getTime())) return isEnglish() ? "Date of birth is not valid." : "La fecha de nacimiento no es válida. Use el formato DD/MM/AAAA.";
       const today = new Date();
       today.setHours(0, 0, 0, 0);
-      if (dateObj > today) return "La fecha de nacimiento no puede ser posterior a la fecha de hoy.";
-      if (dateObj.getFullYear() < 1900) return "Verifique la fecha de nacimiento. El año parece incorrecto.";
+      if (dateObj > today) return isEnglish() ? "Date of birth cannot be in the future." : "La fecha de nacimiento no puede ser posterior a la fecha de hoy.";
+      if (dateObj.getFullYear() < 1900) return isEnglish() ? "Please verify your date of birth. The year seems incorrect." : "Verifique la fecha de nacimiento. El año parece incorrecto.";
 
-      // Calcular edad mínima (12 años para atención médica)
       const minAge = new Date();
       minAge.setFullYear(minAge.getFullYear() - 12);
-      if (dateObj > minAge) return "Debe tener al menos 12 años para solicitar atención médica.";
+      if (dateObj > minAge) return isEnglish() ? "You must be at least 12 years old to request medical care." : "Debe tener al menos 12 años para solicitar atención médica.";
 
-      // Edad máxima razonable
       const maxAge = new Date();
       maxAge.setFullYear(maxAge.getFullYear() - 120);
-      if (dateObj < maxAge) return "Verifique la fecha de nacimiento. Si tiene más de 120 años, contáctenos directamente.";
-
+      if (dateObj < maxAge) return isEnglish() ? "Please verify your date of birth. If you are over 120, please contact us directly." : "Verifique la fecha de nacimiento. Si tiene más de 120 años, contáctenos directamente.";
       return null;
     },
 
     /** Select obligatorio */
     requiredSelect: (value, id) => {
-      if (!value || value === "") return `Seleccione una opción para ${label(id).toLowerCase()}.`;
+      if (!value || value === "") return isEnglish() ? `Please select an option for ${fieldLabel(id).toLowerCase()}.` : `Seleccione una opción para ${fieldLabel(id).toLowerCase()}.`;
       return null;
     },
 
-    /** Clínica — validación especial con cascada */
+    /** Clínica */
     clinic: (value) => {
       const clinicSelect = document.getElementById("clinic");
-      if (!clinicSelect) return "Error al validar la clínica.";
-      if (clinicSelect.disabled) return "Debe seleccionar un país primero.";
+      if (!clinicSelect) return isEnglish() ? "Error validating clinic." : "Error al validar la clínica.";
+      if (clinicSelect.disabled) return isEnglish() ? "Please select a country first." : "Debe seleccionar un país primero.";
       const v = (value || "").trim();
-      if (!v) return "Seleccione una clínica de la lista.";
+      if (!v) return isEnglish() ? "Please select a clinic from the list." : "Seleccione una clínica de la lista.";
       return null;
     },
 
-    /** Correo electrónico — varias capas de validación */
+    /** Correo electrónico */
     email: (value) => {
       const v = (value || "").trim();
-      if (!v) return "El correo electrónico es obligatorio.";
-      if (v.length > 254) return "El correo electrónico no puede exceder los 254 caracteres.";
+      if (!v) return isEnglish() ? "Email is required." : "El correo electrónico es obligatorio.";
+      if (v.length > 254) return isEnglish() ? "Email cannot exceed 254 characters." : "El correo electrónico no puede exceder los 254 caracteres.";
 
-      // Estructura básica
       const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!re.test(v)) return "Ingrese un correo electrónico válido (ej: usuario@dominio.com).";
+      if (!re.test(v)) return isEnglish() ? "Enter a valid email address (e.g., user@domain.com)." : "Ingrese un correo electrónico válido (ej: usuario@dominio.com).";
 
       const [localPart, domain] = v.split("@");
+      if (localPart.length > 64) return isEnglish() ? "The local part of the email (before @) is too long." : "La parte local del correo (antes de @) es demasiado larga.";
+      if (!domain.includes(".")) return isEnglish() ? "The email domain must include a dot (e.g., email@domain.com)." : "El dominio del correo debe incluir un punto (ej: correo@dominio.com).";
 
-      if (localPart.length > 64) return "La parte local del correo (antes de @) es demasiado larga.";
-
-      // Verificar que el dominio tenga al menos un punto después de @
-      if (!domain.includes(".")) return "El dominio del correo debe incluir un punto (ej: correo@dominio.com).";
-
-      // Verificar TLD (última parte después del último punto)
       const parts = domain.split(".");
       const tld = parts[parts.length - 1];
-      if (tld.length < 2) return "El dominio del correo debe tener una extensión válida (ej: .com, .es, .org).";
+      if (tld.length < 2) return isEnglish() ? "The email domain must have a valid extension (e.g., .com, .org)." : "El dominio del correo debe tener una extensión válida (ej: .com, .es, .org).";
 
-      // Caracteres válidos en local-part
-      if (!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+$/.test(localPart)) return "El correo contiene caracteres no permitidos en la parte local.";
-
-      // Dominio con caracteres válidos
-      if (!/^[a-zA-Z0-9.-]+$/.test(domain)) return "El dominio del correo contiene caracteres no válidos.";
-
+      if (!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+$/.test(localPart)) return isEnglish() ? "The email contains invalid characters in the local part." : "El correo contiene caracteres no permitidos en la parte local.";
+      if (!/^[a-zA-Z0-9.-]+$/.test(domain)) return isEnglish() ? "The email domain contains invalid characters." : "El dominio del correo contiene caracteres no válidos.";
       return null;
     },
 
-    /** Teléfono — validación internacional robusta */
+    /** Teléfono */
     phone: (value) => {
       const v = (value || "").trim();
-      if (!v) return "El número de teléfono es obligatorio.";
-      if (v.length < 7) return "El número de teléfono es demasiado corto. Ingrese al menos 7 dígitos.";
-      if (v.length > 20) return "El número de teléfono es demasiado largo. Verifique el número ingresado.";
+      if (!v) return isEnglish() ? "Phone number is required." : "El número de teléfono es obligatorio.";
+      if (v.length < 7) return isEnglish() ? "Phone number is too short. Enter at least 7 digits." : "El número de teléfono es demasiado corto. Ingrese al menos 7 dígitos.";
+      if (v.length > 20) return isEnglish() ? "Phone number is too long. Please verify." : "El número de teléfono es demasiado largo. Verifique el número ingresado.";
 
-      // Extraer solo dígitos
       const digits = v.replace(/\D/g, "");
-      if (digits.length < 7) return "El número de teléfono debe contener al menos 7 dígitos.";
-      if (digits.length > 15) return "El número de teléfono no puede tener más de 15 dígitos.";
-
-      // Verificar que no sean solo dígitos repetidos (ej: 1111111111)
-      if (/^(\d)\1{6,}$/.test(digits)) return "El número de teléfono no puede ser una secuencia repetitiva.";
-
-      // Verificar caracteres válidos en el formato ingresado
-      if (!/^[\d\s\+\-\(\)]+$/.test(v)) return "El teléfono solo puede contener dígitos, espacios, +, -, paréntesis.";
-
-      // Si comienza con +, debe tener el código de país
-      if (v.startsWith("+") && digits.length < 8) return "Si incluye el código de país (+), el número debe tener al menos 8 dígitos.";
-
+      if (digits.length < 7) return isEnglish() ? "Phone number must contain at least 7 digits." : "El número de teléfono debe contener al menos 7 dígitos.";
+      if (digits.length > 15) return isEnglish() ? "Phone number cannot have more than 15 digits." : "El número de teléfono no puede tener más de 15 dígitos.";
+      if (/^(\d)\1{6,}$/.test(digits)) return isEnglish() ? "Phone number cannot be a repetitive sequence." : "El número de teléfono no puede ser una secuencia repetitiva.";
+      if (!/^[\d\s\+\-\(\)]+$/.test(v)) return isEnglish() ? "Phone can only contain digits, spaces, +, -, parentheses." : "El teléfono solo puede contener dígitos, espacios, +, -, paréntesis.";
+      if (v.startsWith("+") && digits.length < 8) return isEnglish() ? "If you include the country code (+), the number must have at least 8 digits." : "Si incluye el código de país (+), el número debe tener al menos 8 dígitos.";
       return null;
     },
 
     /** Dirección */
     address: (value) => {
       const v = (value || "").trim();
-      if (!v) return "La dirección es obligatoria.";
-      if (v.length < 10) return "La dirección es demasiado corta. Incluya calle, número, ciudad y país.";
-      if (v.length > 200) return "La dirección no puede exceder los 200 caracteres.";
-      if (!/^[a-zA-Z0-9áéíóúüñÁÉÍÓÚÜÑ\s,.#/\-ºª]+$/.test(v)) return "La dirección contiene caracteres no válidos.";
-      // Al menos un número en la dirección
-      if (!/\d/.test(v)) return "La dirección debe incluir un número (casa, piso, o apartamento).";
+      if (!v) return isEnglish() ? "Address is required." : "La dirección es obligatoria.";
+      if (v.length < 10) return isEnglish() ? "Address is too short. Include street, number, city and country." : "La dirección es demasiado corta. Incluya calle, número, ciudad y país.";
+      if (v.length > 200) return isEnglish() ? "Address cannot exceed 200 characters." : "La dirección no puede exceder los 200 caracteres.";
+      if (!/^[a-zA-Z0-9áéíóúüñÁÉÍÓÚÜÑ\s,.#/\-ºª]+$/.test(v)) return isEnglish() ? "Address contains invalid characters." : "La dirección contiene caracteres no válidos.";
+      if (!/\d/.test(v)) return isEnglish() ? "Address must include a number (house, floor, or apartment)." : "La dirección debe incluir un número (casa, piso, o apartamento).";
       return null;
     },
 
     /** Radio button group obligatorio */
     requiredRadio: (name) => {
-      const labelsMap = {
-        has_allergies: "¿Tiene alergias?",
-        has_chronic: "¿Padece alguna enfermedad crónica?",
-        has_insurance: "¿Tiene seguro médico?",
-      };
+      const labelsMap = isEnglish()
+        ? {
+            has_allergies: "Do you have allergies?",
+            has_chronic: "Do you have any chronic condition?",
+            has_insurance: "Do you have medical insurance?",
+          }
+        : {
+            has_allergies: "¿Tiene alergias?",
+            has_chronic: "¿Padece alguna enfermedad crónica?",
+            has_insurance: "¿Tiene seguro médico?",
+          };
       const checked = document.querySelector(`input[name="${name}"]:checked`);
-      if (!checked) return `Debe responder: ${labelsMap[name] || "esta pregunta"}.`;
+      if (!checked) return isEnglish() ? `Please answer: ${labelsMap[name] || "this question"}.` : `Debe responder: ${labelsMap[name] || "esta pregunta"}.`;
       return null;
     },
   };
@@ -205,6 +195,14 @@
   /* FUNCIONES AUXILIARES                                            */
   /* ============================================================== */
 
+  /** Abre el elemento <details> ancestro si existe */
+  function openParentDetails(el) {
+    const details = el.closest("details");
+    if (details && !details.open) {
+      details.open = true;
+    }
+  }
+
   /** Crea o actualiza el mensaje de error debajo de un campo */
   function setFieldError(input, message) {
     const wrapper = input.closest(".error-wrapper") || input.parentElement;
@@ -214,6 +212,9 @@
     input.classList.remove(SUCCESS_CLASS, SUCCESS_BG_CLASS);
 
     if (message) {
+      // Abrir el details si el campo está dentro de uno colapsado
+      openParentDetails(input);
+
       // Añadir clases de error
       input.classList.add(ERROR_CLASS, ERROR_BG_CLASS);
 
@@ -263,6 +264,9 @@
     const existingMsg = wrapper.querySelector(`.${ERROR_TEXT_CLASS}[data-radio="${name}"]`);
 
     if (message) {
+      // Abrir el details si el grupo está dentro de uno colapsado
+      openParentDetails(firstRadio);
+
       if (!existingMsg) {
         const msgEl = document.createElement("p");
         msgEl.className = `${ERROR_TEXT_CLASS} text-xs mt-1.5`;
@@ -328,16 +332,22 @@
     const conditionalField = document.getElementById(conditionalId);
 
     if (conditionalField) {
-      if (checked && checked.value === "si") {
-        // Si respondió "Sí", el campo descriptivo es obligatorio
+      if (checked && (checked.value === "si" || checked.value === "yes")) {
+        // Si respondió "Sí/Yes", el campo descriptivo es obligatorio
         const condValue = conditionalField.value.trim();
         const condLabels = {
-          allergy_description: "Por favor, describa sus alergias en detalle.",
-          chronic_description: "Por favor, describa su enfermedad crónica.",
-          insurance_name: "Por favor, indique el nombre de su seguro médico.",
+          allergy_description: isEnglish()
+            ? "Please describe your allergies in detail."
+            : "Por favor, describa sus alergias en detalle.",
+          chronic_description: isEnglish()
+            ? "Please describe your chronic condition."
+            : "Por favor, describa su enfermedad crónica.",
+          insurance_name: isEnglish()
+            ? "Please indicate your insurance provider name."
+            : "Por favor, indique el nombre de su seguro médico.",
         };
         if (!condValue) {
-          setFieldError(conditionalField, condLabels[conditionalField.id] || "Este campo es obligatorio.");
+          setFieldError(conditionalField, condLabels[conditionalField.id] || (isEnglish() ? "This field is required." : "Este campo es obligatorio."));
           return false;
         } else {
           setFieldSuccess(conditionalField);
@@ -423,7 +433,7 @@
       const radios = document.querySelectorAll(`input[name="${group.name}"]`);
       radios.forEach((radio) => {
         radio.addEventListener("change", function () {
-          if (this.value === "si") {
+          if (this.value === "si" || this.value === "yes") {
             wrapper.style.opacity = "1";
             wrapper.style.pointerEvents = "auto";
           } else {
@@ -464,15 +474,17 @@
           <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
         </svg>
       </div>
-      <h2 class="text-2xl font-bold text-[#1F2937] mb-3">¡Solicitud enviada con éxito!</h2>
+      <h2 class="text-2xl font-bold text-[#1F2937] mb-3">${isEnglish() ? "Request submitted successfully!" : "¡Solicitud enviada con éxito!"}</h2>
       <p class="text-[#1F2937]/60 max-w-md mx-auto mb-8">
-        Hemos recibido tu información. Uno de nuestros especialistas en salud digital
-        se comunicará contigo en las próximas 24 a 48 horas hábiles.
+        ${isEnglish()
+          ? "We have received your information. One of our digital health specialists will contact you within the next 24 to 48 business hours."
+          : "Hemos recibido tu información. Uno de nuestros especialistas en salud digital se comunicará contigo en las próximas 24 a 48 horas hábiles."
+        }
       </p>
-      <a href="index.html"
+      <a href="${isEnglish() ? "index.en.html" : "index.html"}"
          class="inline-block bg-[#2563EB] text-white text-base font-semibold px-8 py-3.5 rounded-xl btn-scale hover:bg-[#1d4ed8] shadow-lg shadow-blue-500/25"
-         aria-label="Volver a la página de inicio de HealthCore">
-        Volver al inicio
+         aria-label="${isEnglish() ? "Back to HealthCore home page" : "Volver a la página de inicio de HealthCore"}">
+        ${isEnglish() ? "Back to home" : "Volver al inicio"}
       </a>
     `;
 
@@ -545,6 +557,13 @@
           if (errorId) {
             const errorInput = document.getElementById(errorId[1]);
             if (errorInput) errorInput.focus();
+          } else {
+            // Si es un error de radio (data-radio), enfocar el primer radio
+            const radioName = firstError.getAttribute("data-radio");
+            if (radioName) {
+              const firstRadio = form.querySelector(`input[name="${radioName}"]`);
+              if (firstRadio) firstRadio.focus();
+            }
           }
         }
       }

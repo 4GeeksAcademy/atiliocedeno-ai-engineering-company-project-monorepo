@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HealthCore — Solicitud de Atención Médica</title>
-  <meta name="description" content="Solicite atención médica en HealthCore. Red de 12 clínicas en Texas, Florida, Georgia, Londres y Mánchester. Citas el mismo día, horarios ampliados y personal bilingüe." />
+  <title>HealthCore — Medical Care Request</title>
+  <meta name="description" content="Request medical care at HealthCore. Network of 12 clinics in Texas, Florida, Georgia, London and Manchester. Same-day appointments, extended hours, and bilingual staff." />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏥</text></svg>" />
 
   <!-- ============================================================ -->
@@ -16,11 +16,11 @@
     "@graph": [
       {
         "@type": "WebPage",
-        "@id": "https://healthcore.com/aplication.html",
-        "url": "https://healthcore.com/aplication.html",
-        "name": "HealthCore — Solicitud de Atención Médica",
-        "description": "Solicite atención médica en HealthCore. Red de 12 clínicas en Texas, Florida, Georgia, Londres y Mánchester. Citas el mismo día, horarios ampliados y personal bilingüe.",
-        "inLanguage": "es",
+        "@id": "https://healthcore.com/aplication.en.html",
+        "url": "https://healthcore.com/aplication.en.html",
+        "name": "HealthCore — Medical Care Request",
+        "description": "Request medical care at HealthCore. Network of 12 clinics in Texas, Florida, Georgia, London and Manchester. Same-day appointments, extended hours, and bilingual staff.",
+        "inLanguage": "en",
         "isPartOf": {
           "@id": "https://healthcore.com/#website"
         },
@@ -33,7 +33,7 @@
         "@id": "https://healthcore.com/#website",
         "url": "https://healthcore.com",
         "name": "HealthCore",
-        "inLanguage": "es",
+        "inLanguage": "en",
         "publisher": {
           "@id": "https://healthcore.com/#organization"
         }
@@ -43,7 +43,7 @@
         "@id": "https://healthcore.com/#organization",
         "name": "HealthCore",
         "alternateName": "HealthCore Ambulatory Care",
-        "description": "Red de 12 clínicas de atención ambulatoria en Estados Unidos y Reino Unido. Fundada en 2011 en Austin, Texas. Cumplimiento HIPAA y UK GDPR.",
+        "description": "Network of 12 ambulatory care clinics in the United States and United Kingdom. Founded in 2011 in Austin, Texas. HIPAA and UK GDPR compliant.",
         "foundingDate": "2011",
         "foundingLocation": {
           "@type": "Place",
@@ -75,45 +75,46 @@
     ]
   }
   </script>
+
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body class="bg-[#F8FAFC] text-[#1F2937] font-sans antialiased min-h-screen flex flex-col">
 
   <!-- ============================================================ -->
-  <!-- ENCABEZADO / NAVEGACIÓN                                       -->
+  <!-- HEADER / NAVIGATION                                          -->
   <!-- ============================================================ -->
   <header role="banner" class="bg-white/90 backdrop-blur-md shadow-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16 md:h-20">
 
         <!-- Logo -->
-        <a href="index.html" class="flex items-center gap-2" aria-label="HealthCore - Ir al inicio">
+        <a href="index.en.html" class="flex items-center gap-2" aria-label="HealthCore - Go to homepage">
           <span class="text-2xl" aria-hidden="true">🏥</span>
           <span class="text-xl font-bold text-[#2563EB] tracking-tight">Health<span class="text-[#14B8A6]">Core</span></span>
         </a>
 
         <!-- Navigation - Desktop -->
-        <nav class="hidden md:flex items-center gap-8" aria-label="Navegación principal">
-          <a href="index.html" class="text-sm font-medium text-[#1F2937]/70 hover:text-[#2563EB] transition-colors duration-200">Inicio</a>
-          <a href="index.html#features" class="text-sm font-medium text-[#1F2937]/70 hover:text-[#2563EB] transition-colors duration-200">Características</a>
-          <a href="index.html#contact" class="text-sm font-medium text-[#1F2937]/70 hover:text-[#2563EB] transition-colors duration-200">Contacto</a>
+        <nav class="hidden md:flex items-center gap-8" aria-label="Main navigation">
+          <a href="index.en.html" class="text-sm font-medium text-[#1F2937]/70 hover:text-[#2563EB] transition-colors duration-200">Home</a>
+          <a href="index.en.html#features" class="text-sm font-medium text-[#1F2937]/70 hover:text-[#2563EB] transition-colors duration-200">Features</a>
+          <a href="index.en.html#contact" class="text-sm font-medium text-[#1F2937]/70 hover:text-[#2563EB] transition-colors duration-200">Contact</a>
           <!-- Language Toggle -->
-          <a href="aplication.en.html" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-[#1F2937]/20 text-sm font-semibold text-[#1F2937]/70 hover:border-[#2563EB]/40 hover:text-[#2563EB] transition-all duration-200" aria-label="Switch to English" lang="en">
+          <a href="aplication.html" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-[#1F2937]/20 text-sm font-semibold text-[#1F2937]/70 hover:border-[#2563EB]/40 hover:text-[#2563EB] transition-all duration-200" aria-label="Cambiar a español" lang="es">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
-            EN
+            ES
           </a>
         </nav>
 
         <!-- Mobile nav -->
         <div class="md:hidden flex items-center gap-2">
-          <a href="aplication.en.html" class="flex items-center gap-1 px-2.5 py-1.5 rounded-lg border border-[#1F2937]/20 text-xs font-semibold text-[#1F2937]/70 hover:border-[#2563EB]/40 hover:text-[#2563EB] transition-all duration-200" aria-label="Switch to English" lang="en">
-            🌐 EN
+          <a href="aplication.html" class="flex items-center gap-1 px-2.5 py-1.5 rounded-lg border border-[#1F2937]/20 text-xs font-semibold text-[#1F2937]/70 hover:border-[#2563EB]/40 hover:text-[#2563EB] transition-all duration-200" aria-label="Cambiar a español" lang="es">
+            🌐 ES
           </a>
-          <a href="index.html" class="text-sm font-medium text-[#2563EB] hover:underline" aria-label="Volver al inicio">
-            Volver al inicio
+          <a href="index.en.html" class="text-sm font-medium text-[#2563EB] hover:underline" aria-label="Back to homepage">
+            Back to home
           </a>
         </div>
 
@@ -122,7 +123,7 @@
   </header>
 
   <!-- ============================================================ -->
-  <!-- FORMULARIO DE SOLICITUD                                       -->
+  <!-- REQUEST FORM                                                  -->
   <!-- ============================================================ -->
   <main class="flex-1 py-10 md:py-16">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -131,38 +132,38 @@
       <header class="text-center mb-10 md:mb-12">
         <hgroup>
           <span class="inline-block bg-[#14B8A6]/10 text-[#14B8A6] text-xs font-semibold px-3 py-1.5 rounded-full mb-4">
-            Solicitud de Atención
+            Care Request
           </span>
           <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-[#1F2937]">
-            Cuéntanos sobre ti
+            Tell us about yourself
           </h1>
         </hgroup>
         <p class="mt-3 text-sm sm:text-base text-[#1F2937]/60 max-w-lg mx-auto" id="form-description" role="doc-abstract">
-          Solicita atención en cualquiera de nuestras 12 clínicas en Estados Unidos
-          y Reino Unido. Te confirmaremos la cita en menos de 24 horas.
+          Request care at any of our 12 clinics in the United States
+          and the United Kingdom. We will confirm your appointment within 24 hours.
         </p>
         <div class="gradient-line mx-auto mt-4" aria-hidden="true"></div>
       </header>
 
       <!-- Form -->
-      <article aria-label="Formulario de solicitud de atención médica">
-      <form action="#" method="POST" id="hc-form" novalidate class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 sm:p-8 md:p-10" aria-label="Formulario de solicitud de atención médica" aria-describedby="form-description">
+      <article aria-label="Medical care request form">
+      <form action="#" method="POST" id="hc-form" novalidate class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 sm:p-8 md:p-10" aria-label="Medical care request form" aria-describedby="form-description">
 
         <!-- ============================================ -->
-        <!-- 1. DATOS PERSONALES                          -->
+        <!-- 1. PERSONAL INFORMATION                      -->
         <!-- ============================================ -->
-        <fieldset aria-label="Datos personales del paciente">
+        <fieldset aria-label="Patient personal information">
           <legend class="text-lg font-bold text-[#1F2937] flex items-center gap-2 mb-6">
             <span class="w-8 h-8 bg-[#2563EB]/10 rounded-full flex items-center justify-center text-sm font-bold text-[#2563EB]" aria-hidden="true">1</span>
-            Datos Personales
+            Personal Information
           </legend>
 
           <div class="space-y-5">
 
-            <!-- Nombre completo -->
+            <!-- Full name -->
             <div>
               <label for="fullname" class="block text-sm font-semibold text-[#1F2937] mb-1.5">
-                Nombre completo <span class="text-red-500" aria-hidden="true">*</span>
+                Full name <span class="text-red-500" aria-hidden="true">*</span>
               </label>
               <input
                 type="text"
@@ -170,17 +171,17 @@
                 name="fullname"
                 required
                 aria-required="true"
-                aria-label="Nombre completo"
-                placeholder="Ej: María García López"
+                aria-label="Full name"
+                placeholder="e.g. Maria Garcia Lopez"
                 class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-[#F8FAFC] text-sm text-[#1F2937] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#2563EB]/20 focus:border-[#2563EB] transition-all duration-200"
               />
             </div>
 
-            <!-- Fecha de nacimiento y Sexo -->
+            <!-- Date of birth and Sex -->
             <div class="grid sm:grid-cols-2 gap-5">
               <div>
                 <label for="birthdate" class="block text-sm font-semibold text-[#1F2937] mb-1.5">
-                  Fecha de nacimiento <span class="text-red-500" aria-hidden="true">*</span>
+                  Date of birth <span class="text-red-500" aria-hidden="true">*</span>
                 </label>
                 <input
                   type="date"
@@ -188,36 +189,36 @@
                   name="birthdate"
                   required
                   aria-required="true"
-                  aria-label="Fecha de nacimiento"
+                  aria-label="Date of birth"
                   class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-[#F8FAFC] text-sm text-[#1F2937] focus:outline-none focus:ring-2 focus:ring-[#2563EB]/20 focus:border-[#2563EB] transition-all duration-200"
                 />
               </div>
               <div>
                 <label for="sex" class="block text-sm font-semibold text-[#1F2937] mb-1.5">
-                  Sexo <span class="text-red-500" aria-hidden="true">*</span>
+                  Sex <span class="text-red-500" aria-hidden="true">*</span>
                 </label>
                 <select
                   id="sex"
                   name="sex"
                   required
                   aria-required="true"
-                  aria-label="Sexo"
+                  aria-label="Sex"
                   class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-[#F8FAFC] text-sm text-[#1F2937] focus:outline-none focus:ring-2 focus:ring-[#2563EB]/20 focus:border-[#2563EB] transition-all duration-200 appearance-none"
                 >
-                  <option value="" disabled selected>Seleccionar</option>
-                  <option value="femenino">Femenino</option>
-                  <option value="masculino">Masculino</option>
-                  <option value="otro">Otro</option>
-                  <option value="prefiero-no-decir">Prefiero no decirlo</option>
+                  <option value="" disabled selected>Select</option>
+                  <option value="female">Female</option>
+                  <option value="male">Male</option>
+                  <option value="other">Other</option>
+                  <option value="prefer-not-to-say">Prefer not to say</option>
                 </select>
               </div>
             </div>
 
-            <!-- Correo y Teléfono -->
+            <!-- Email and Phone -->
             <div class="grid sm:grid-cols-2 gap-5">
               <div>
                 <label for="email" class="block text-sm font-semibold text-[#1F2937] mb-1.5">
-                  Correo electrónico <span class="text-red-500" aria-hidden="true">*</span>
+                  Email address <span class="text-red-500" aria-hidden="true">*</span>
                 </label>
                 <input
                   type="email"
@@ -225,14 +226,14 @@
                   name="email"
                   required
                   aria-required="true"
-                  aria-label="Correo electrónico"
-                  placeholder="correo@ejemplo.com"
+                  aria-label="Email address"
+                  placeholder="email@example.com"
                   class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-[#F8FAFC] text-sm text-[#1F2937] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#2563EB]/20 focus:border-[#2563EB] transition-all duration-200"
                 />
               </div>
               <div>
                 <label for="phone" class="block text-sm font-semibold text-[#1F2937] mb-1.5">
-                  Teléfono <span class="text-red-500" aria-hidden="true">*</span>
+                  Phone number <span class="text-red-500" aria-hidden="true">*</span>
                 </label>
                 <input
                   type="tel"
@@ -240,17 +241,17 @@
                   name="phone"
                   required
                   aria-required="true"
-                  aria-label="Teléfono"
-                  placeholder="+56 9 1234 5678"
+                  aria-label="Phone number"
+                  placeholder="+1 (555) 123 4567"
                   class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-[#F8FAFC] text-sm text-[#1F2937] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#2563EB]/20 focus:border-[#2563EB] transition-all duration-200"
                 />
               </div>
             </div>
 
-            <!-- Dirección -->
+            <!-- Address -->
             <div>
               <label for="address" class="block text-sm font-semibold text-[#1F2937] mb-1.5">
-                Dirección <span class="text-red-500" aria-hidden="true">*</span>
+                Address <span class="text-red-500" aria-hidden="true">*</span>
               </label>
               <input
                 type="text"
@@ -258,45 +259,45 @@
                 name="address"
                 required
                 aria-required="true"
-                aria-label="Dirección"
-                placeholder="Calle, número, ciudad, país"
+                aria-label="Address"
+                placeholder="Street, number, city, country"
                 class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-[#F8FAFC] text-sm text-[#1F2937] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#2563EB]/20 focus:border-[#2563EB] transition-all duration-200"
               />
             </div>
 
-            <!-- Clínica más cercana -->
+            <!-- Nearest clinic -->
             <div class="grid sm:grid-cols-2 gap-5">
               <div>
                 <label for="clinicCountry" class="block text-sm font-semibold text-[#1F2937] mb-1.5">
-                  País <span class="text-red-500" aria-hidden="true">*</span>
+                  Country <span class="text-red-500" aria-hidden="true">*</span>
                 </label>
                 <select
                   id="clinicCountry"
                   name="clinicCountry"
                   required
                   aria-required="true"
-                  aria-label="País de la clínica"
+                  aria-label="Clinic country"
                   class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-[#F8FAFC] text-sm text-[#1F2937] focus:outline-none focus:ring-2 focus:ring-[#2563EB]/20 focus:border-[#2563EB] transition-all duration-200 appearance-none"
                 >
-                  <option value="" disabled selected>Seleccionar país</option>
-                  <option value="usa">Estados Unidos</option>
-                  <option value="uk">Reino Unido</option>
+                  <option value="" disabled selected>Select country</option>
+                  <option value="usa">United States</option>
+                  <option value="uk">United Kingdom</option>
                 </select>
               </div>
               <div>
                 <label for="clinic" class="block text-sm font-semibold text-[#1F2937] mb-1.5">
-                  Clínica más cercana <span class="text-red-500" aria-hidden="true">*</span>
+                  Nearest clinic <span class="text-red-500" aria-hidden="true">*</span>
                 </label>
                 <select
                   id="clinic"
                   name="clinic"
                   required
                   aria-required="true"
-                  aria-label="Clínica más cercana"
+                  aria-label="Nearest clinic"
                   disabled
                   class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-[#F8FAFC] text-sm text-[#1F2937] focus:outline-none focus:ring-2 focus:ring-[#2563EB]/20 focus:border-[#2563EB] transition-all duration-200 appearance-none disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  <option value="" disabled selected>Seleccione un país primero</option>
+                  <option value="" disabled selected>Select a country first</option>
                 </select>
               </div>
             </div>
@@ -308,32 +309,32 @@
         <div class="border-t border-gray-100 my-8"></div>
 
         <!-- ============================================ -->
-        <!-- 2. INFORMACIÓN MÉDICA                        -->
+        <!-- 2. MEDICAL INFORMATION                       -->
         <!-- ============================================ -->
-        <fieldset aria-label="Información médica del paciente">
+        <fieldset aria-label="Patient medical information">
           <legend class="text-lg font-bold text-[#1F2937] flex items-center gap-2 mb-6">
             <span class="w-8 h-8 bg-[#14B8A6]/10 rounded-full flex items-center justify-center text-sm font-bold text-[#14B8A6]" aria-hidden="true">2</span>
-            Información Médica
+            Medical Information
           </legend>
 
           <div class="space-y-6">
 
             <!-- ============================================ -->
-            <!-- ALERGIAS                                     -->
+            <!-- ALLERGIES                                    -->
             <!-- ============================================ -->
             <div class="bg-[#F8FAFC] rounded-xl border border-[#2563EB]/30 ring-1 ring-[#2563EB]/10 transition-all duration-200">
               <div class="flex items-center gap-3 px-5 py-4">
                 <span class="w-8 h-8 bg-[#2563EB]/10 rounded-lg flex items-center justify-center text-base" aria-hidden="true">⚠️</span>
                 <div>
-                  <span class="text-sm font-semibold text-[#1F2937]">¿Tiene alergias?</span>
+                  <span class="text-sm font-semibold text-[#1F2937]">Do you have any allergies?</span>
                 </div>
               </div>
               <div class="px-5 pb-5">
                 <div class="flex flex-col sm:flex-row items-start gap-4">
                   <div class="flex items-center gap-4">
                     <label class="flex items-center gap-2 cursor-pointer">
-                      <input type="radio" name="has_allergies" value="si" required class="w-4 h-4 text-[#2563EB] border-gray-300 focus:ring-[#2563EB]" />
-                      <span class="text-sm text-[#1F2937]">Sí</span>
+                      <input type="radio" name="has_allergies" value="yes" required class="w-4 h-4 text-[#2563EB] border-gray-300 focus:ring-[#2563EB]" />
+                      <span class="text-sm text-[#1F2937]">Yes</span>
                     </label>
                     <label class="flex items-center gap-2 cursor-pointer">
                       <input type="radio" name="has_allergies" value="no" required class="w-4 h-4 text-[#2563EB] border-gray-300 focus:ring-[#2563EB]" />
@@ -342,13 +343,13 @@
                   </div>
                   <div class="w-full">
                     <label for="allergy_description" class="block text-xs font-medium text-[#1F2937]/60 mb-1">
-                      Describa su alergia
+                      Describe your allergy
                     </label>
                     <textarea
                       id="allergy_description"
                       name="allergy_description"
                       rows="2"
-                      placeholder="Ej: Alergia a la penicilina, polen, frutos secos..."
+                      placeholder="e.g. Allergy to penicillin, pollen, nuts..."
                       class="w-full px-4 py-2.5 rounded-lg border border-gray-200 bg-white text-sm text-[#1F2937] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#2563EB]/20 focus:border-[#2563EB] transition-all duration-200"
                     ></textarea>
                   </div>
@@ -357,21 +358,21 @@
             </div>
 
             <!-- ============================================ -->
-            <!-- ENFERMEDADES CRÓNICAS                         -->
+            <!-- CHRONIC CONDITIONS                           -->
             <!-- ============================================ -->
             <div class="bg-[#F8FAFC] rounded-xl border border-[#14B8A6]/30 ring-1 ring-[#14B8A6]/10 transition-all duration-200">
               <div class="flex items-center gap-3 px-5 py-4">
                 <span class="w-8 h-8 bg-[#14B8A6]/10 rounded-lg flex items-center justify-center text-base" aria-hidden="true">🫀</span>
                 <div>
-                  <span class="text-sm font-semibold text-[#1F2937]">¿Padece alguna enfermedad crónica?</span>
+                  <span class="text-sm font-semibold text-[#1F2937]">Do you have any chronic conditions?</span>
                 </div>
               </div>
               <div class="px-5 pb-5">
                 <div class="flex flex-col sm:flex-row items-start gap-4">
                   <div class="flex items-center gap-4">
                     <label class="flex items-center gap-2 cursor-pointer">
-                      <input type="radio" name="has_chronic" value="si" required class="w-4 h-4 text-[#14B8A6] border-gray-300 focus:ring-[#14B8A6]" />
-                      <span class="text-sm text-[#1F2937]">Sí</span>
+                      <input type="radio" name="has_chronic" value="yes" required class="w-4 h-4 text-[#14B8A6] border-gray-300 focus:ring-[#14B8A6]" />
+                      <span class="text-sm text-[#1F2937]">Yes</span>
                     </label>
                     <label class="flex items-center gap-2 cursor-pointer">
                       <input type="radio" name="has_chronic" value="no" required class="w-4 h-4 text-[#14B8A6] border-gray-300 focus:ring-[#14B8A6]" />
@@ -380,13 +381,13 @@
                   </div>
                   <div class="w-full">
                     <label for="chronic_description" class="block text-xs font-medium text-[#1F2937]/60 mb-1">
-                      Describa la enfermedad
+                      Describe the condition
                     </label>
                     <textarea
                       id="chronic_description"
                       name="chronic_description"
                       rows="2"
-                      placeholder="Ej: Diabetes tipo 2, hipertensión arterial, asma..."
+                      placeholder="e.g. Type 2 diabetes, high blood pressure, asthma..."
                       class="w-full px-4 py-2.5 rounded-lg border border-gray-200 bg-white text-sm text-[#1F2937] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#14B8A6]/20 focus:border-[#14B8A6] transition-all duration-200"
                     ></textarea>
                   </div>
@@ -395,21 +396,21 @@
             </div>
 
             <!-- ============================================ -->
-            <!-- SEGURO MÉDICO                                -->
+            <!-- HEALTH INSURANCE                              -->
             <!-- ============================================ -->
             <div class="bg-[#F8FAFC] rounded-xl border border-[#2563EB]/30 ring-1 ring-[#2563EB]/10 transition-all duration-200">
               <div class="flex items-center gap-3 px-5 py-4">
                 <span class="w-8 h-8 bg-[#2563EB]/10 rounded-lg flex items-center justify-center text-base" aria-hidden="true">🛡️</span>
                 <div>
-                  <span class="text-sm font-semibold text-[#1F2937]">¿Tiene seguro médico?</span>
+                  <span class="text-sm font-semibold text-[#1F2937]">Do you have health insurance?</span>
                 </div>
               </div>
               <div class="px-5 pb-5">
                 <div class="flex flex-col sm:flex-row items-start gap-4">
                   <div class="flex items-center gap-4">
                     <label class="flex items-center gap-2 cursor-pointer">
-                      <input type="radio" name="has_insurance" value="si" required class="w-4 h-4 text-[#2563EB] border-gray-300 focus:ring-[#2563EB]" />
-                      <span class="text-sm text-[#1F2937]">Sí</span>
+                      <input type="radio" name="has_insurance" value="yes" required class="w-4 h-4 text-[#2563EB] border-gray-300 focus:ring-[#2563EB]" />
+                      <span class="text-sm text-[#1F2937]">Yes</span>
                     </label>
                     <label class="flex items-center gap-2 cursor-pointer">
                       <input type="radio" name="has_insurance" value="no" required class="w-4 h-4 text-[#2563EB] border-gray-300 focus:ring-[#2563EB]" />
@@ -418,13 +419,13 @@
                   </div>
                   <div class="w-full">
                     <label for="insurance_name" class="block text-xs font-medium text-[#1F2937]/60 mb-1">
-                      Indique el nombre del seguro
+                      Insurance provider name
                     </label>
                     <input
                       type="text"
                       id="insurance_name"
                       name="insurance_name"
-                      placeholder="Ej: BCBS, Sanitas, Mapfre, Colsanitas..."
+                      placeholder="e.g. BCBS, Aetna, Cigna, UnitedHealthcare..."
                       class="w-full px-4 py-2.5 rounded-lg border border-gray-200 bg-white text-sm text-[#1F2937] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#2563EB]/20 focus:border-[#2563EB] transition-all duration-200"
                     />
                   </div>
@@ -439,34 +440,34 @@
         <div class="border-t border-gray-100 my-8"></div>
 
         <!-- ============================================ -->
-        <!-- 3. ENVÍO                                      -->
+        <!-- 3. SUBMIT                                    -->
         <!-- ============================================ -->
         <div class="flex flex-col sm:flex-row items-center gap-4">
 
           <button
             type="submit"
             class="w-full sm:w-auto bg-[#2563EB] text-white text-base font-semibold px-10 py-3.5 rounded-xl btn-scale hover:bg-[#1d4ed8] shadow-lg shadow-blue-500/25 cursor-pointer"
-            aria-label="Enviar solicitud de atención médica"
+            aria-label="Submit medical care request"
           >
-            Enviar Solicitud
+            Submit Request
           </button>
 
           <a
-            href="index.html"
+            href="index.en.html"
             class="text-sm text-[#1F2937]/50 hover:text-[#2563EB] transition-colors duration-200"
-            aria-label="Cancelar y volver a la página de inicio"
+            aria-label="Cancel and return to homepage"
           >
-            Cancelar y volver al inicio
+            Cancel and return to home
           </a>
 
         </div>
 
         <!-- Privacy note -->
         <address class="mt-6 text-xs text-[#1F2937]/40 leading-relaxed not-italic">
-          Al enviar este formulario aceptas que tus datos sean tratados conforme a nuestra
-          <a href="#" class="text-[#2563EB] hover:underline" aria-label="Ver política de privacidad">Política de Privacidad</a>.
-          HealthCore cumple con <strong>HIPAA</strong> en EE.UU. y <strong>UK GDPR</strong> en el Reino Unido
-          para garantizar la protección de tu información sanitaria.
+          By submitting this form you agree that your data will be processed in accordance with our
+          <a href="#" class="text-[#2563EB] hover:underline" aria-label="View privacy policy">Privacy Policy</a>.
+          HealthCore is <strong>HIPAA</strong> compliant in the US and <strong>UK GDPR</strong> compliant
+          to ensure the protection of your health information.
         </address>
 
       </form>
@@ -487,12 +488,12 @@
           <span class="text-sm font-bold text-white">Health<span class="text-[#14B8A6]">Core</span></span>
         </div>
         <p class="text-xs text-gray-500">
-          &copy; <time datetime="2026">2026</time> HealthCore. Todos los derechos reservados.
+          &copy; <time datetime="2026">2026</time> HealthCore. All rights reserved.
         </p>
         <div class="flex items-center gap-4">
-          <a href="index.html" class="text-xs text-gray-400 hover:text-[#14B8A6] transition-colors" aria-label="Ir a la página de inicio">Inicio</a>
-          <a href="#" class="text-xs text-gray-400 hover:text-[#14B8A6] transition-colors" aria-label="Ver política de privacidad">Privacidad</a>
-          <a href="#" class="text-xs text-gray-400 hover:text-[#14B8A6] transition-colors" aria-label="Ver términos y condiciones">Términos</a>
+          <a href="index.en.html" class="text-xs text-gray-400 hover:text-[#14B8A6] transition-colors" aria-label="Go to homepage">Home</a>
+          <a href="#" class="text-xs text-gray-400 hover:text-[#14B8A6] transition-colors" aria-label="View privacy policy">Privacy</a>
+          <a href="#" class="text-xs text-gray-400 hover:text-[#14B8A6] transition-colors" aria-label="View terms and conditions">Terms</a>
         </div>
       </div>
 
@@ -539,7 +540,7 @@
         defaultOption.value = "";
         defaultOption.disabled = true;
         defaultOption.selected = true;
-        defaultOption.textContent = "Seleccionar clínica";
+        defaultOption.textContent = "Select a clinic";
         clinicSelect.appendChild(defaultOption);
 
         options.forEach(function(c) {
@@ -553,7 +554,7 @@
         noOpt.value = "";
         noOpt.disabled = true;
         noOpt.selected = true;
-        noOpt.textContent = "Seleccione un país primero";
+        noOpt.textContent = "Select a country first";
         clinicSelect.appendChild(noOpt);
       }
     });
